@@ -1,0 +1,92 @@
+## Capitolo 12: Framework open source
+
+### 12.0 Obiettivi di apprendimento  
+- Conoscere i principali framework open source per sviluppo e simulazione  
+- Installare e configurare ambienti di lavoro (SDK, CLI, plugin)  
+- Scrivere, eseguire e debuggare circuiti con Qiskit, Cirq, pyQuil e Pennylane  
+- Integrare ambienti multipli tramite formati comuni (OpenQASM, QIR)  
+
+### 12.1 Prerequisiti  
+- Modello a circuito e porte quantistiche (Capitoli 4–5)  
+- Conoscenze di Python e pip/conda per l’installazione dei pacchetti  
+- Simulatori classici (Capitolo 11)  
+
+### 12.2 Introduzione e motivazione  
+I framework open source forniscono API, simulatori integrati e connessioni a hardware remoto. Consentono di prototipare algoritmi, testare rumore e infine eseguire su veri processori quantistici tramite cloud.  
+
+---
+
+### 12.3 Contenuti teorici  
+
+#### 12.3.1 IBM Qiskit  
+- **Terra**: costruzione di circuiti, transpiler, ottimizzazione.  
+- **Aer**: simulatori statevector, density-matrix, noise.  
+- **Ignis**: calibrazione, benchmarking, correzione degli errori.  
+- **Aqua**: moduli applicativi per chimica, ottimizzazione, machine learning.  
+- **Installazione**: `pip install qiskit`  
+- **OpenQASM 2/3**: esportazione e importazione di circuiti  
+
+#### 12.3.2 Google Cirq  
+- Struttura a moduli: `cirq.Circuit`, `cirq.GridQubit`, simulatore  
+- **Google Sycamore API**: transpiler per topologia proprietaria  
+- **Noise modeling**: `cirq.noise` per canali CPTP  
+- **Installazione**: `pip install cirq-google`  
+
+#### 12.3.3 Rigetti Forest (pyQuil)  
+- **pyQuil**: linguaggio Quil e API Python  
+- **quilc**: compilatore locale  
+- **QVM**: Quantum Virtual Machine per simulazione  
+- **QPU**: accesso a hardware Rigetti via API  
+- **Installazione**: `pip install pyquil` e configurazione credenziali  
+
+#### 12.3.4 PennyLane  
+- **Hybrid quantum–classical**: differenziazione automatica, autograd  
+- **Plugin**: supporto Qiskit Aer, Cirq, Rigetti, Braket  
+- **QNode**: wrapper di funzioni Python come circuiti  
+- **Installazione**: `pip install pennylane` e plugin specifici  
+
+#### 12.3.5 Linguaggi di alto livello  
+- **Silq**: sintassi semplificata, garbage collection quantistica  
+- **OpenQASM**: standard di rappresentazione testuale  
+- **QIR**: IR LLVM-based per interoperabilità  
+- **Quantum Intermediate Representation**: ponti tra tool  
+
+---
+
+### 12.4 Esempi guidati  
+
+1. **Circuito Hello World**  
+   - Qiskit: definizione `QuantumCircuit`, `execute(..., backend=Aer.get_backend('statevector_simulator'))`  
+   - Cirq: `cirq.Circuit`, `cirq.Simulator().simulate(circuit)`  
+2. **Benchmark di rumore**  
+   - pyQuil: `get_qc('9q-square-noisy-qvm')`, definizione di canali di rumore, esecuzione su QVM  
+   - Pennylane: definizione di QNode con rumore, ottimizzazione di parametro  
+
+3. **Transpilation e mapping**  
+   - Qiskit transpiler per topologia “ibmq_lagos”  
+   - Cirq `cirq.google.optimizers.SycamoreCompiler`  
+
+---
+
+### 12.5 Esercizi proposti  
+
+1. Confrontare profondità e numero di CNOT di un circuito Grover su 4 qubit tra Qiskit e Cirq dopo transpilation.  
+2. Implementare un oracolo Bernstein–Vazirani in pyQuil e misurare risultato su QVM.  
+3. Creare un QNode in PennyLane per circuito parametrico \(R_x(\theta)\), usare autograd per trovare \(\theta\) che massimizza la probabilità di \(|1\rangle\).  
+4. Esportare un circuito Qiskit in OpenQASM 3 e importarlo in Cirq, verificandone la corrispondenza.  
+
+---
+
+### 12.6 Riepilogo e key takeaways  
+- Qiskit, Cirq, pyQuil e PennyLane coprono l’intero workflow: definizione, simulazione, esecuzione su hardware  
+- OpenQASM e QIR facilitano lo scambio di circuiti tra piattaforme  
+- L’ibridazione quantum–classical emergente nei framework supporta algoritmi di machine learning  
+
+---
+
+### 12.7 Ulteriori letture  
+- Qiskit Documentation – Tutorials & API reference  
+- Cirq GitHub – Examples directory  
+- Rigetti Forest Docs – Quil Introduction  
+- PennyLane Tutorials – Hybrid quantum–classical examples  
+- Silq Paper (ETH Zürich) – Language design and benchmarks
