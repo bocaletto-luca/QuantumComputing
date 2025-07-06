@@ -1,0 +1,97 @@
+## Capitolo 2: Meccanica quantistica
+
+### 2.0 Obiettivi di apprendimento
+
+Al termine di questo capitolo lo studente saprà:  
+- Descrivere lo stato quantistico di un sistema a uno o più qubit.  
+- Comprendere il principio di sovrapposizione e la sua rappresentazione formale.  
+- Calcolare le probabilità di risultato in una misura quantistica.  
+- Definire e riconoscere l’entanglement fra più qubit.  
+- Enunciare e applicare i postulati fondamentali della meccanica quantistica.
+
+### 2.1 Prerequisiti
+
+- Spazi vettoriali, prodotto scalare e norme (Capitolo 1).  
+- Nozione di matrice unitaria e autovalori.  
+- Familiarità con la notazione bra–ket e con il concetto di vettore complesso.
+
+### 2.2 Introduzione e motivazione
+
+La meccanica quantistica è la teoria che descrive il comportamento della materia e della luce su scala atomica e subatomica.  
+Nel contesto del calcolo quantistico, essa fornisce il linguaggio matematico per rappresentare e manipolare l’informazione quantistica.  
+Comprendere i postulati fondamentali e i fenomeni unici (sovrapposizione, entanglement) è essenziale per progettare algoritmi che sfruttino la potenza del mondo quantistico.
+
+### 2.3 Contenuti teorici
+
+#### 2.3.1 Stati quantistici e sovrapposizione
+
+Uno stato di un qubit si rappresenta come vettore normalizzato in uno spazio di dimensione 2:  
+\[
+|\psi\rangle = \alpha\,|0\rangle + \beta\,|1\rangle,
+\quad \alpha,\beta\in\mathbb{C},\;
+|\alpha|^2 + |\beta|^2 = 1.
+\]
+
+Il principio di sovrapposizione afferma che qualunque combinazione lineare di stati validi è a sua volta uno stato fisico realizzabile.  
+Rappresentazione sul Bloch sphere: caratterizzazione tramite angoli \(\theta,\phi\) tali che  
+\(\displaystyle|\psi\rangle = \cos\frac{\theta}{2}\,|0\rangle + e^{i\phi}\sin\frac{\theta}{2}\,|1\rangle.\)
+
+#### 2.3.2 Misura e probabilità
+
+La misura di un qubit proietta lo stato su uno degli autostati di un’osservabile. Per la base computazionale \( \{|0\rangle,|1\rangle\}\):  
+- Probabilità di ottenere 0: \(P(0)=|\alpha|^2\).  
+- Probabilità di ottenere 1: \(P(1)=|\beta|^2\).  
+
+Dopo la misura, il sistema collassa nello stato corrispondente al risultato osservato.
+
+#### 2.3.3 Entanglement
+
+Due qubit sono entangled se lo stato globale non si fattorizza in prodotto di stati locali. Esempio di Bell state:  
+\[
+|\Phi^+\rangle = \frac{1}{\sqrt2}\bigl(|00\rangle + |11\rangle\bigr).
+\]
+
+Misurando il primo qubit, il secondo assume istantaneamente uno stato correlato, indipendentemente dalla distanza spaziale fra i due.
+
+#### 2.3.4 Postulati fondamentali
+
+1. Ogni sistema isolato è descritto da uno stato \(|\psi\rangle\) in uno spazio di Hilbert.  
+2. L’evoluzione temporale è unitaria: \(|\psi(t)\rangle = U(t)\,|\psi(0)\rangle\), con \(U^\dagger U = I\).  
+3. Le misure sono associate a un insieme di operatori \(\{M_m\}\) tali che \(\sum_m M_m^\dagger M_m = I\).  
+4. Immediatamente dopo la misura con esito \(m\), lo stato diventa  
+\(\tfrac{M_m|\psi\rangle}{\sqrt{\langle\psi|M_m^\dagger M_m|\psi\rangle}}\).  
+5. Stati compositi di sistemi multipli si ottengono tramite prodotto tensoriale degli spazi singoli.
+
+### 2.4 Approfondimenti “note a margine”
+
+- Interpretazione di Copenaghen vs. Interpretazione a molti mondi.  
+- Paradosso EPR e disuguaglianze di Bell.  
+- Concetto di decoerenza e ambiente come misura involontaria.
+
+### 2.5 Esempi guidati
+
+1. Calcolare le probabilità di misura per lo stato  
+   \(\displaystyle|\psi\rangle = \frac{1}{\sqrt3}|0\rangle + \sqrt{\tfrac{2}{3}}|1\rangle.\)  
+2. Rappresentare sul Bloch sphere \(\displaystyle|\psi\rangle = \cos\frac{\pi}{8}|0\rangle + e^{i\pi/4}\sin\frac{\pi}{8}|1\rangle.\)  
+3. Verificare che la coppia di qubit inizializzata in \(|00\rangle\) e sottoposta a H su qubit 1 e a CNOT produce \(|\Phi^+\rangle\).
+
+### 2.6 Esercizi proposti
+
+1. Dimostrare che \(|\Psi^-\rangle = \frac{1}{\sqrt2}(|01\rangle - |10\rangle)\) è uno stato entangled.  
+2. Per lo stato \(\alpha|0\rangle+\beta|1\rangle\), mostrare che la misura di un osservabile \(Z\) fornisce esiti \(\pm1\) con probabilità \(|\alpha|^2\), \(|\beta|^2\).  
+3. Considerare il sistema di tre qubit in stato GHZ  
+   \(\tfrac{1}{\sqrt2}(|000\rangle+|111\rangle)\). Calcolare le probabilità di misura in base computazionale e commentare la correlazione.
+
+### 2.7 Riepilogo e key takeaways
+
+- Lo stato quantistico è vettore in uno spazio di Hilbert, soggetto a regole di sovrapposizione e unitarietà.  
+- La misura collassa lo stato e assegna probabilità legate alle ampiezze di probabilità.  
+- L’entanglement è risorsa fondamentale per comunicazione e calcolo quantistico.  
+- I postulati forniscono il quadro operativo per evoluzione e misure di sistemi quantistici.
+
+### 2.8 Ulteriori letture
+
+- Nielsen & Chuang, “Quantum Computation and Quantum Information”  
+- Schumacher & Westmoreland, “Quantum Processes, Systems, and Information”  
+- IntroQiskit Tutorials (IBM Qiskit)  
+- Articoli di review su arXiv: quant-ph/######
