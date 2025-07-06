@@ -1,0 +1,91 @@
+## Capitolo 10: Controllo ed elettronica
+
+### 10.0 Obiettivi di apprendimento  
+- Comprendere l’architettura hardware per il controllo dei qubit: sistemi di controllo analogico/digitale, FPGA, microonde  
+- Descrivere le tecniche di generazione e modulazione degli impulsi per gate quantistici  
+- Analizzare i requisiti di criogenia, schermatura e isolamento  
+- Conoscere i sistemi di acquisizione dati per la lettura dei risultati di misura  
+
+---
+
+### 10.1 Prerequisiti  
+- Caratteristiche delle diverse tecnologie di qubit (Capitolo 9)  
+- Principi di meccanica quantistica e rappresentazione degli stati (Capitoli 1–3)  
+- Nozioni di base di porte e circuiti quantistici (Capitoli 4–5)  
+
+---
+
+### 10.2 Introduzione e motivazione  
+Il livello di controllo e di elettronica di supporto è determinante per garantire fedeltà e velocità nei processori quantistici. Gli impulsi di microonde, i segnali analogici e le letture di stato devono essere generati e acquisiti con precisione sub-nanosecondo, spesso all’interno di ambienti criogenici.
+
+---
+
+### 10.3 Contenuti teorici  
+
+#### 10.3.1 Architettura di controllo classica  
+- Generatori di forme d’onda arbitraria (AWG) per microonde  
+- Modulazione I/Q e mixer per ottenere impulsi con ampiezza e fase controllate  
+- Convertitori digitale-analogico (DAC) e analogico-digitale (ADC) a bassa latenza  
+
+#### 10.3.2 FPGA e processori di bordo  
+- Utilizzo di FPGA per orchestrare sequenze di impulsi in tempo reale  
+- Sincronizzazione multi-canale per gate paralleli  
+- Feedback a basso livello per correzioni di errore in tempo reale  
+
+#### 10.3.3 Tecniche di criogenia e schermatura  
+- Diluitori a 10–20 mK: sistemi di refrigerazione (Helium-3/4)  
+- Isolamento da vibrazioni e rumore termico  
+- Filtri passa basso e passa alto (eccitazione e readout)  
+
+#### 10.3.4 Elettronica di lettura del qubit  
+- Risonatori e tecniche dispersive per readout superconduttori  
+- Detettori fotonici single-photon per qubit ottici  
+- Rilevazione di fluorescenza per ioni intrappolati e NV center  
+
+---
+
+### 10.4 Approfondimenti “note a margine”  
+- Implementazione di feedback quantistico: correzione feed-forward e misure condizionali  
+- Controllo digitale avanzato: AWG a 10 GS/s e segment addressing  
+- Effetti di cross-talk e calibrature dinamiche  
+
+---
+
+### 10.5 Esempi guidati  
+
+1. **Generazione di impulso X90**  
+   - Progetto di segnale: portante a 5 GHz, envelope gaussiana, durata 20 ns  
+   - Calibrazione IQ: minimizzare sheath error  
+
+2. **Lettura dispersiva**  
+   - Codifica stato qubit nella frequenza di risonanza di un resonator coplanare  
+   - Misura di fase e ampiezza del segnale riflesso  
+
+3. **Sequenza di feedback**  
+   - Misura di un qubit e applicazione condizionale di X se risultato = 1  
+   - Implementazione su FPGA con latenza < 200 ns  
+
+---
+
+### 10.6 Esercizi proposti  
+
+1. Disegnare lo schema a blocchi di un sistema di controllo a due qubit superconduttori con FPGA e AWG.  
+2. Calcolare la forma d’onda necessaria per un impulso Y90 con envelope esponenziale e durata di 30 ns.  
+3. Stimare il tempo di latenza totale tra misura e applicazione di un gate condizionale in un ciclo di feedback.  
+4. Confrontare le tecniche di readout di qubit superconduttori e ioni rispetto a sensibilità e velocità.  
+
+---
+
+### 10.7 Riepilogo e key takeaways  
+- Il controllo richiede generazione precisa di microonde, sincronizzazione tra canali e readout con alta risoluzione temporale  
+- FPGA e AWG sono componenti chiave per orchestrare sequenze di gate e misure in hardware quantistico  
+- Criogenia e schermatura garantiscono condizioni operative stabili e riducono rumore termico  
+- Tecniche di lettura variano a seconda della tecnologia di qubit, bilanciando sensibilità e velocità  
+
+---
+
+### 10.8 Ulteriori letture  
+- D. Ristè, E. Lucero, et al., “Initialization by measurement of a superconducting quantum bit circuit” (PRL 2012)  
+- Córcoles et al., “Demonstration of a quantum error detection code using a square lattice of four superconducting qubits” (Nat. Comms 2015)  
+- Tutorials AWG & FPGA – Keysight University  
+- Review: “Quantum hardware control: present and future” (ARXIV)
