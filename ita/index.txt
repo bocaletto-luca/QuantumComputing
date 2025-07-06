@@ -1,0 +1,132 @@
+# Quantum Computing
+## Author: Bocaletto Luca
+---
+
+# Indice definitivo proposto
+
+## Prefazione  
+1. Obiettivi del libro  
+2. Perché il quantum computing  
+3. Guida all’utilizzo di questo manuale  
+
+---
+
+## Parte I: Fondamenti matematici e fisici  
+### Capitolo 1: Matematica di base  
+  - 1.1 Vettori e spazi vettoriali  
+  - 1.2 Prodotti scalari e norme  
+  - 1.3 Matrici, operatori e autovalori  
+  - 1.4 Numeri complessi  
+
+### Capitolo 2: Nozioni di meccanica quantistica  
+  - 2.1 Stati quantistici e sovrapposizione  
+  - 2.2 Misura e probabilità  
+  - 2.3 Entanglement  
+  - 2.4 Postulati fondamentali  
+
+### Esercizi I  
+
+---
+
+## Parte II: Qubit e porte quantistiche  
+### Capitolo 3: Il qubit  
+  - 3.1 Bloch sphere  
+  - 3.2 Stati puri e misti  
+  - 3.3 Sistema multi-qubit e spazi tensoriali  
+
+### Capitolo 4: Porte logiche quantistiche  
+  - 4.1 Porte a 1 qubit (X, Y, Z, H, S, T)  
+  - 4.2 Porte a 2 qubit (CNOT, CZ, SWAP)  
+  - 4.3 Unitarietà e reversibilità  
+
+### Esercizi II  
+
+---
+
+## Parte III: Circuiti e algoritmi di base  
+### Capitolo 5: Costruzione di circuiti  
+  - 5.1 Rappresentazione circuitale  
+  - 5.2 Notazione e simbologia  
+
+### Capitolo 6: Algoritmi elementari  
+  - 6.1 Deutsch–Jozsa  
+  - 6.2 Bernstein–Vazirani  
+  - 6.3 Grover  
+
+### Esercizi III  
+
+---
+
+## Parte IV: Errori e correzione  
+### Capitolo 7: Fonti di rumore e decoerenza  
+  - 7.1 Tipi di errore  
+  - 7.2 Misure di qualità  
+
+### Capitolo 8: Codici di correzione  
+  - 8.1 Codice di ripetizione  
+  - 8.2 Codici di Shor e Steane  
+  - 8.3 Stabilizzatori e superficie code  
+
+### Esercizi IV  
+
+---
+
+## Parte V: Hardware quantistico  
+### Capitolo 9: Tipologie di qubit  
+  - 9.1 Superconduttori  
+  - 9.2 Ioni intrappolati  
+  - 9.3 Fotoni e spin in diamante  
+
+### Capitolo 10: Controllo ed elettronica  
+  - 10.1 Criogenia  
+  - 10.2 Generazione di impulsi  
+  - 10.3 Lettura dei risultati  
+
+### Esercizi V  
+
+---
+
+## Parte VI: Piattaforme software  
+### Capitolo 11: Simulatori classici  
+  - 11.1 Qiskit Aer  
+  - 11.2 Cirq  
+
+### Capitolo 12: Framework open source  
+  - 12.1 IBM Qiskit  
+  - 12.2 Google Cirq  
+  - 12.3 Pennylane  
+  - 12.4 OpenQASM e Silq  
+
+### Esercizi VI  
+
+---
+
+## Parte VII: Algoritmi avanzati e applicazioni  
+### Capitolo 13: Shor e HHL  
+  - 13.1 Algoritmo di Shor  
+  - 13.2 HHL per equazioni lineari  
+
+### Capitolo 14: Casi d’uso  
+  - 14.1 Simulazioni molecolari  
+  - 14.2 Ottimizzazione quantistica  
+  - 14.3 Crittografia e sicurezza  
+
+### Esercizi VII  
+
+---
+
+## Parte VIII: Best practice di sviluppo  
+### Capitolo 15: Documentazione e versioning  
+### Capitolo 16: Testing e validazione  
+### Capitolo 17: Collaborazione open source  
+### Esercizi VIII  
+
+---
+
+## Appendici  
+- A. Glossario  
+- B. Guida alla notazione  
+- C. Soluzioni agli esercizi  
+- D. Risorse online  
+
+---
