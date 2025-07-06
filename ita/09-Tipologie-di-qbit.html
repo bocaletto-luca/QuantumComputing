@@ -1,0 +1,111 @@
+## Capitolo 9: Tipologie di qubit
+
+### 9.0 Obiettivi di apprendimento  
+- Conoscere le principali implementazioni hardware di qubit: superconduttori, ioni intrappolati, fotonici, spin in diamante  
+- Confrontare parametri chiave: tempi di coerenza, fidelità dei gate, scalabilità  
+- Comprendere vantaggi e sfide di ciascuna tecnologia  
+- Selezionare l’architettura più adatta a uno specifico caso d’uso  
+
+---
+
+### 9.1 Prerequisiti  
+- Principi di base di meccanica quantistica e matrice densità (Capitoli 1–3)  
+- Concetto di porta unitaria e misure (Capitoli 4–5)  
+- Nozioni di rumore e decoerenza (Capitolo 7)  
+
+---
+
+### 9.2 Introduzione e motivazione  
+La scelta della tecnologia di qubit impatta direttamente su prestazioni, affidabilità e costi di un computer quantistico. Ogni approccio offre un diverso bilanciamento tra tempo di coerenza, complessità di controllo e facilità di integrazione in architetture scalabili.
+
+---
+
+### 9.3 Contenuti teorici  
+
+#### 9.3.1 Qubit superconduttori  
+- **Principio di funzionamento**: circuiti LC a Josephson junction, livelli energetici discreti  
+- **Parametri tipici**:  
+  - Tempo di coerenza \(T_1\): 50–100 μs  
+  - Coerenza di fase \(T_2\): 20–80 μs  
+  - Fidelità gate a singolo qubit: > 99.9 %  
+  - Fidelità CNOT: ~ 99 %  
+- **Pro**: integrazione con microelettronica, gate veloci (10–50 ns)  
+- **Contro**: operano a 10–20 mK, infrastruttura criogenica complessa  
+- **Esempi di piattaforme**: IBM Eagle, Google Sycamore  
+
+#### 9.3.2 Qubit a ioni intrappolati  
+- **Principio di funzionamento**: ioni in potenziali elettrostatici (trappole di Paul), transizioni elettroniche come qubit  
+- **Parametri tipici**:  
+  - \(T_1\): > 1 s  
+  - \(T_2\): 100–300 ms  
+  - Fidelità gate a singolo qubit: > 99.99 %  
+  - Fidelità gate a due qubit: > 99.5 %  
+- **Pro**: eccezionale coerenza, operazioni all’avanguardia per algoritmi precisi  
+- **Contro**: gate più lenti (10–100 μs), difficoltà di parallelismo e routing  
+- **Esempi di piattaforme**: IonQ, Honeywell (Quantinuum)  
+
+#### 9.3.3 Qubit fotonici  
+- **Principio di funzionamento**: fotoni singoli in guide d’onda o fibre, qubit codificato in polarizzazione o percorso  
+- **Parametri tipici**:  
+  - Decadimento trascurabile in fibra ottica  
+  - Gate basati su interferometri e misura condizionata  
+  - Fidelità dipendente dalla perdita e dall’efficienza di rilevazione (> 90 % con tecnologie avanzate)  
+- **Pro**: operano a temperatura ambiente, trasmissione a lunga distanza per comunicazione quantistica  
+- **Contro**: difficoltà di implementare gate entangling deterministici senza sussidi di misura e feed-forward  
+- **Esempi di piattaforme**: Xanadu, PsiQuantum (architetture fotoniche integrate)  
+
+#### 9.3.4 Qubit spin in diamante (NV center)  
+- **Principio di funzionamento**: difetto nitrogen-vacancy in cristallo di diamante, spin elettronico controllato via microonde  
+- **Parametri tipici**:  
+  - \(T_1\): > ms–s (dipende da temperatura)  
+  - \(T_2\): μs–ms (con dinamiche di decoupling)  
+  - Fidelità gate a singolo qubit: > 99.9 %  
+- **Pro**: operano a temperatura ambiente o criogenica moderata, sensori quantistici per magnetometria  
+- **Contro**: difficoltà di collegare molti centri NV in rete coerente  
+- **Esempi di applicazioni**: sensing, proof-of-concept per calcolo quantistico  
+
+---
+
+### 9.4 Note a margine  
+- **Algoritmi di benchmarking**: Randomized Benchmarking, Quantum Volume (per misurare capacità complessiva)  
+- **Scalabilità**: architetture modulari, chip 3D e collegamenti ottici per superconduttori e ioni  
+- **Ricerca emergente**: qubit topologici (anyon), spin di fosforo nel silicio  
+
+---
+
+### 9.5 Esempi guidati  
+1. **Calcolo del Quantum Volume**  
+   - Definire un circuito casuale a vari livelli di profondità su un device superconduttore  
+   - Confrontare risultati simulati e misurati, determinare massima dimensione di circuito affidabile  
+
+2. **Sonda Ramsey su ioni intrappolati**  
+   - Circuito: \(|0\rangle\)–H–delay–H–misura  
+   - Misurare oscillazioni di probabilità in funzione del delay, estrarre \(T_2^*\)  
+
+3. **Interferometro Mach–Zehnder con fotoni**  
+   - Codifica qubit in percorso  
+   - Calcolo di operatori Z e X tramite fasi relative e beam splitter  
+
+---
+
+### 9.6 Esercizi proposti  
+1. Confrontare in una tabella tempi di coerenza e fidelità gate per le quattro tecnologie descritte.  
+2. Stimare il tasso di errore complessivo in un circuito CNOT su superconduttori, dato \(T_1\), \(T_2\) e durata del gate.  
+3. Progettare un semplice esperimento di Rabi oscillation per un centro NV a freddo, indicando frequenza di microonde e tempi di misura.  
+4. Discutere pro e contro di ogni implementazione in vista di un algoritmo di Grover su 10 qubit.  
+
+---
+
+### 9.7 Riepilogo e key takeaways  
+- Ogni tecnologia di qubit offre un compromesso tra coerenza, velocità di gate e complessità infrastrutturale  
+- Superconduttori e ioni intrappolati sono al momento più maturi per calcolo universale  
+- Fotonici e spin NV spiccano in comunicazione e sensing quantistico  
+- Il benchmarking (Quantum Volume) è cruciale per valutare le capacità reali di un processore quantistico  
+
+---
+
+### 9.8 Ulteriori letture  
+- M. Kjaergaard et al., “Superconducting Qubits: Current State of Play” (ARXIV 2020)  
+- C. Monroe, J. Kim, “Scaling the Ion Trap Quantum Processor” (Science 2013)  
+- N. Cerf et al., “Photonic Quantum Information Processing” (Springer 2017)  
+- L. Childress, R. Hanson, “Diamond NV Centers for Quantum Sensing and Information Processing” (MRS Bulletin 2013)
