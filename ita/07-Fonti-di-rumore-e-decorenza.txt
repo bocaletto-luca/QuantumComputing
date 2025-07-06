@@ -1,0 +1,97 @@
+## Capitolo 7: Fonti di rumore e decoerenza
+
+### 7.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente saprà:  
+- Identificare i principali meccanismi di rumore e decoerenza nei dispositivi quantistici.  
+- Descrivere i canali di rumore usando l’approccio operatoriale di Kraus.  
+- Valutare l’impatto di errori di gate e di misura sulla qualità dei calcoli quantistici.  
+- Applicare modelli semplici di damping e dephasing a uno stato di qubit.
+
+### 7.1 Prerequisiti  
+- Stato di un qubit e matrice densità (Capitolo 3).  
+- Porte quantistiche unitarie (Capitolo 4).  
+- Prodotto tensoriale e sistemi multi-qubit (Capitolo 3).
+
+### 7.2 Introduzione e motivazione  
+Nei computer quantistici reali, l’interazione con l’ambiente e le imperfezioni di controllo introducono errori irreversibili. La decoerenza — perdita di coerenza di fase — limita il tempo utile per eseguire un calcolo. Per progettare algoritmi robusti e codici di correzione, è fondamentale quantificare e descrivere formalmente questi fenomeni.
+
+### 7.3 Contenuti teorici
+
+#### 7.3.1 Canali di rumore e operatori di Kraus  
+Un canale di rumore è una mappa completamente positiva e trace-preserving (CPTP) che trasforma una densità \(\rho\) in  
+\[
+\rho' = \sum_{k} K_k\,\rho\,K_k^\dagger,\qquad \sum_k K_k^\dagger K_k = I.
+\]  
+I \(K_k\) sono gli operatori di Kraus, ciascuno associato a un possibile “effetto” dell’ambiente.
+
+#### 7.3.2 Damping e amplitude damping channel  
+Modella perdite di energia (es. emissione spontanea).  
+Per un singolo qubit:  
+\[
+K_0 = \begin{pmatrix}1 & 0\\0 & \sqrt{1-\gamma}\end{pmatrix},\quad
+K_1 = \begin{pmatrix}0 & \sqrt{\gamma}\\0 & 0\end{pmatrix},
+\]  
+dove \(\gamma\in[0,1]\) è il tasso di damping. L’azione su \(\rho\) attenua la componente \(\lvert1\rangle\).
+
+#### 7.3.3 Phase damping (dephasing channel)  
+Descrive perdita di fase senza scambio energetico.  
+Kraus operatori:  
+\[
+K_0 = \sqrt{1-\lambda}\,I,\quad
+K_1 = \sqrt{\lambda}\,Z,
+\]  
+con \(\lambda\in[0,1]\). Sul Bloch sphere: le coordinate \(x,y\) si contraggono verso zero, \(z\) resta invariata.
+
+#### 7.3.4 Depolarizing channel  
+Modello di rumore “bianco” che mescola \(\rho\) con identità:  
+\[
+\rho' = (1-p)\,\rho + p\,\tfrac{I}{2},\qquad p\in[0,1].
+\]
+
+#### 7.3.5 Errori di gate e di misura  
+- **Gate infidelity**: unitarietà imperfetta \(U_\text{reale} = U_\text{ideal} + \delta U\).  
+- **Errore sistematico**: sovra/under-rotation nelle rotazioni Rₙ(θ).  
+- **Errore di misura**: confusione tra outcome “0” e “1”, parametrizzato da matrice di confusione.
+
+### 7.4 Approfondimenti “note a margine”  
+- Connessione tra decoerenza e tempi di coerenza \(T_1\) (damping) e \(T_2\) (dephasing).  
+- Modelli master equation di Lindblad per evoluzione continua:  
+  \(\dot\rho = -i[H,\rho] + \sum_k\bigl(L_k\,\rho\,L_k^\dagger - \tfrac12\{L_k^\dagger L_k,\rho\}\bigr).\)
+
+### 7.5 Esempi guidati  
+
+1. **Amplitude damping su \(\lvert1\rangle\)**  
+   Partendo da \(\rho = |1\rangle\langle1|\) e \(\gamma=0.3\), calcolare  
+   \(\rho' = \sum_k K_k\rho K_k^\dagger\) e verificare la popolazione residua di \(\lvert1\rangle\).
+
+2. **Phase damping su \(\lvert+\rangle\)**  
+   Con \(\lambda=0.5\), far agire il canale e osservare la contrazione dei termini off‐diagonali di \(\rho\).
+
+3. **Depolarizing su stato generico**  
+   Dato \(\rho = \tfrac12(I + \vec r\cdot\vec\sigma)\), mostrare che  
+   \(\rho' = \tfrac12(I + (1- p)\,\vec r\cdot\vec\sigma)\).
+
+### 7.6 Esercizi proposti  
+
+1. Dimostrare che la phase damping channel preserva la traccia e la positiv­ità di \(\rho\).  
+2. Calcolare le coordinate di Bloch \((x',y',z')\) dopo amplitude damping su \(\rho\).  
+3. Modellare un errore di misura con matrice di confusione  
+   \(\begin{pmatrix}1-\varepsilon & \varepsilon\\ \varepsilon & 1-\varepsilon\end{pmatrix}\)  
+   e quantificare l’entropia di informazione nell’outcome.  
+4. Scrivere la master equation di Lindblad per amplitude damping con \(L = \sqrt{\gamma}\,|0\rangle\langle1|\).
+
+### 7.7 Riepilogo e key takeaways  
+
+- Il rumore quantistico si formalizza attraverso canali CPTP e operatori di Kraus.  
+- Amplitude damping e phase damping modellano due fenomeni distinti: perdita di eccitazione e perdita di fase.  
+- Il depolarizing channel rappresenta un mix uniformemente casuale con l’identità.  
+- Errori di gate e misura vanno quantificati per progettare codici di correzione efficaci.
+
+### 7.8 Ulteriori letture  
+
+- Michael A. Nielsen, Isaac L. Chuang, “Quantum Computation and Quantum Information”, Capitolo 8.  
+- John Preskill, “Lecture Notes for Physics 229: Quantum Information and Computation”, sezioni su noise.  
+- M. A. Rivas and S. F. Huelga, “Open Quantum Systems”, Springer.  
+- Articoli su arXiv: quant-ph/###### (decoherence models).  
+
+---
