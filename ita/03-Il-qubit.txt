@@ -1,0 +1,87 @@
+## Capitolo 3: Il qubit
+
+### 3.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente dovrà saper:  
+- Descrivere formalmente lo stato di un singolo qubit come vettore in \(\mathbb{C}^2\).  
+- Visualizzare uno stato puro di qubit sulla Bloch sphere e interpretarne i parametri polari.  
+- Distinguere tra stati puri e stati misti tramite la matrice densità.  
+- Costruire il prodotto tensoriale per sistemi multi-qubit e riconoscere stati prodotto e stati entangled.  
+
+### 3.1 Prerequisiti  
+- Postulati della meccanica quantistica e notazione bra–ket (Capitolo 2).  
+- Spazi vettoriali, prodotto scalare e matrici unitarie (Capitolo 1).  
+
+### 3.2 Introduzione e motivazione  
+Il qubit è l’unità minima di informazione quantistica e generalizza il bit classico grazie al principio di sovrapposizione. La rappresentazione geometrica sul Bloch sphere fornisce un’intuizione fondamentale per la progettazione di gate quantistici e per la comprensione dei fenomeni di decoerenza e misura.  
+
+### 3.3 Contenuti teorici  
+
+#### 3.3.1 Stato di un qubit in \(\mathbb{C}^2\)  
+Uno stato puro di qubit si esprime come  
+\[
+\lvert \psi \rangle = \alpha\,\lvert 0\rangle + \beta\,\lvert 1\rangle,
+\qquad \alpha,\beta\in\mathbb{C},\;
+|\alpha|^2 + |\beta|^2 = 1.
+\]  
+Le ampiezze \(\alpha,\beta\) determinano le probabilità di misura nei due autostati computazionali.
+
+#### 3.3.2 Rappresentazione sulla Bloch sphere  
+Ogni stato puro \(\lvert \psi\rangle\) equivale a un punto della sfera unitaria in \(\mathbb{R}^3\):  
+\[
+\lvert \psi\rangle = \cos\frac{\theta}{2}\,\lvert0\rangle
+  + e^{i\phi}\,\sin\frac{\theta}{2}\,\lvert1\rangle,
+\]  
+con \(0\le\theta\le\pi\), \(0\le\phi<2\pi\).  
+Coordinate cartesiane:  
+\[
+(x,y,z) = \bigl(\sin\theta\cos\phi,\;\sin\theta\sin\phi,\;\cos\theta\bigr).
+\]  
+La fase globale \(e^{i\gamma}\) non influisce sulla posizione sulla sfera.
+
+#### 3.3.3 Stati puri e stati misti  
+- Stato puro: descritto dal vettore \(\lvert\psi\rangle\) o dalla matrice densità  
+  \(\rho = \lvert\psi\rangle\langle\psi\rvert\), con \(\rho^2 = \rho\).  
+- Stato misto: insieme statistico di stati puri, \(\rho = \sum_i p_i\,\lvert\psi_i\rangle\langle\psi_i\rvert\),  
+  con \(0\le p_i\le1\), \(\sum_i p_i=1\), \(\rho^2\neq\rho\).  
+Esempio di stato completamente misto: \(\rho = \tfrac{I}{2}\).
+
+#### 3.3.4 Sistema multi-qubit e prodotto tensoriale  
+Per \(n\) qubit, lo spazio totale è  
+\[
+\mathcal{H} = \bigotimes_{k=1}^n \mathbb{C}^2,\quad \dim\mathcal{H}=2^n.
+\]  
+Stati prodotto: \(\lvert\psi\rangle\otimes\lvert\phi\rangle\).  
+Stati entangled: non esprimibili come prodotto di singoli qubit (es. Bell state  
+\(\tfrac{1}{\sqrt2}(\lvert00\rangle + \lvert11\rangle)\)).
+
+### 3.4 Esempi guidati  
+1. **Matrice densità di \(\lvert +\rangle\)**  
+   \(\lvert +\rangle = \tfrac{1}{\sqrt2}(\lvert0\rangle + \lvert1\rangle)\).  
+   Calcolare \(\rho = \lvert+\rangle\langle +\rvert\) e verificare \(\rho^2=\rho\).  
+
+2. **Bloch sphere per \(\theta=\tfrac{\pi}{4},\;\phi=\tfrac{\pi}{2}\)**  
+   Determinare coordinate \((x,y,z)\) e tracciare il punto sulla sfera.  
+
+3. **Stato di due qubit**  
+   Costruire \(\lvert\psi\rangle = (\lvert00\rangle + \lvert01\rangle)/\sqrt2\).  
+   Verificare che \(\rho = \lvert\psi\rangle\langle\psi\rvert\) è puro e non entangled.
+
+### 3.5 Esercizi proposti  
+1. Dimostrare che per \(\rho = I/2\) si ha \(\mathrm{tr}(\rho)=1\) e \(\rho^2\neq\rho\).  
+2. Rappresentare sul Bloch sphere lo stato  
+   \(\lvert\psi\rangle = \tfrac{1}{\sqrt2}\lvert0\rangle + \tfrac{i}{\sqrt2}\lvert1\rangle\).  
+3. Calcolare il prodotto tensoriale di  
+   \(\lvert\phi\rangle = \lvert0\rangle\) e \(\lvert\chi\rangle = (\lvert0\rangle + \lvert1\rangle)/\sqrt2\).  
+4. Verificare che uno stato puro soddisfa \(\rho^2=\rho\) e uno stato misto no.
+
+### 3.6 Riepilogo e key takeaways  
+- Il qubit è rappresentato da un vettore normalizzato in \(\mathbb{C}^2\).  
+- La Bloch sphere offre una mappa geometrica di stati puri.  
+- Gli stati misti si descrivono con la matrice densità, con tracciato unitario e ρ²≠ρ.  
+- I sistemi multi-qubit richiedono il prodotto tensoriale, ampliando la dimensione dello spazio di stato a \(2^n\).
+
+### 3.7 Ulteriori letture  
+- Nielsen & Chuang, “Quantum Computation and Quantum Information”, Capitolo 2  
+- IBM Qiskit Textbook, sezione “Quantum states”  
+- 3Blue1Brown, “Essence of Quantum Mechanics” (YouTube)  
+- Appunti MIT OCW – Quantum Physics I, lezioni su Bloch sphere and density matrices  
