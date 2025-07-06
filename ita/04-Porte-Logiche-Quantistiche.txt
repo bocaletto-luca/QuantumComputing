@@ -1,0 +1,120 @@
+## Capitolo 4: Porte logiche quantistiche
+
+### 4.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente saprà:  
+- Riconoscere e utilizzare le porte a uno e due qubit più comuni.  
+- Scrivere le loro matrici unitarie e verificarne le proprietà.  
+- Comporre circuiti elementari per generare stati quantistici noti.  
+- Comprendere il concetto di universalità delle porte quantistiche.
+
+### 4.1 Prerequisiti  
+- Definizione di qubit e rappresentazione in \(\mathbb{C}^2\) (Capitolo 3).  
+- Nozioni di matrice unitaria e prodotto tensoriale (Capitolo 1 e 3).  
+- Principi di evoluzione unitaria e misura (Capitolo 2).
+
+### 4.2 Introduzione e motivazione  
+Le porte logiche quantistiche sono gli operatori elementari che agiscono sui qubit esattamente come le porte classiche sui bit. Tuttavia, grazie alla sovrapposizione e all’entanglement, la combinazione di poche porte può dare origine a fenomeni e algoritmi intrinsecamente quantistici. Definire un set minimale di porte universali è fondamentale per qualsiasi architettura di calcolo quantistico.
+
+### 4.3 Contenuti teorici
+
+#### 4.3.1 Porte a 1 qubit  
+Ogni porta a singolo qubit è rappresentata da una matrice \(2\times2\) unitaria.  
+
+  1. **X (NOT quantistico)**  
+     \[
+       X = \begin{pmatrix}0 & 1\\1 & 0\end{pmatrix},  
+       \quad X\lvert0\rangle = \lvert1\rangle,\;X\lvert1\rangle=\lvert0\rangle.
+     \]
+
+  2. **Y**  
+     \[
+       Y = \begin{pmatrix}0 & -i\\i & 0\end{pmatrix},  
+       \quad Y\lvert0\rangle = i\lvert1\rangle,\;Y\lvert1\rangle=-i\lvert0\rangle.
+     \]
+
+  3. **Z (fase)**  
+     \[
+       Z = \begin{pmatrix}1 & 0\\0 & -1\end{pmatrix},  
+       \quad Z\lvert0\rangle = \lvert0\rangle,\;Z\lvert1\rangle=-\lvert1\rangle.
+     \]
+
+  4. **Hadamard (H)**  
+     \[
+       H = \frac{1}{\sqrt2}\begin{pmatrix}1 & 1\\1 & -1\end{pmatrix},  
+       \quad H\lvert0\rangle = \lvert+\rangle,\;H\lvert1\rangle=\lvert-\rangle,
+     \]  
+     con \(\lvert\pm\rangle = (\lvert0\rangle \pm \lvert1\rangle)/\sqrt2\).
+
+  5. **S (phase gate)**  
+     \[
+       S = \begin{pmatrix}1 & 0\\0 & i\end{pmatrix},
+       \quad S^2 = Z.
+     \]
+
+  6. **T (π/8 gate)**  
+     \[
+       T = \begin{pmatrix}1 & 0\\0 & e^{i\pi/4}\end{pmatrix},  
+       \quad T^2 = S,\;T^4 = Z.
+     \]
+
+#### 4.3.2 Porte a 2 qubit  
+Le porte a due qubit operano su \(\mathbb{C}^2\otimes\mathbb{C}^2\) (dimensione 4).
+
+  1. **CNOT (controlled-NOT)**  
+     Controllore: primo qubit; target: secondo.  
+     Matrice \(4\times4\) (in base \(\lvert00\rangle,\lvert01\rangle,\lvert10\rangle,\lvert11\rangle\)):  
+     \[
+       \mathrm{CNOT} = \begin{pmatrix}
+         1&0&0&0\\0&1&0&0\\0&0&0&1\\0&0&1&0
+       \end{pmatrix}.
+     \]
+
+  2. **CZ (controlled-Z)**  
+     \[
+       \mathrm{CZ} = \mathrm{diag}(1,1,1,-1).
+     \]
+
+  3. **SWAP**  
+     Scambia due qubit:  
+     \[
+       \mathrm{SWAP}\,\lvert a,b\rangle = \lvert b,a\rangle.
+     \]  
+     Può essere realizzata con tre CNOT:
+     \(\mathrm{SWAP} = \mathrm{CNOT}_{12}\,\mathrm{CNOT}_{21}\,\mathrm{CNOT}_{12}.\)
+
+#### 4.3.3 Proprietà di unitarietà e reversibilità  
+- Una matrice \(U\) è unitaria se \(U^\dagger U = I\).  
+- Tutte le porte quantistiche sono reversibili: \(U^{-1} = U^\dagger\).  
+- **Universalità**: un set di porte (es. \(\{H,T,\mathrm{CNOT}\}\)) è universale se con esse è possibile approssimare arbitrariamente ogni unitario su \(n\) qubit (teorema di Solovay–Kitaev).
+
+### 4.4 Approfondimenti “note a margine”  
+- Realizzazioni fisiche di porte: impulsi di microonde (superconduttori), laser (ioni intrappolati).  
+- Architetture topologiche e porte topologiche (anyon).  
+- Gate parametrizzati: rotazioni \(R_x(\theta)\), \(R_y(\theta)\), \(R_z(\theta)\).
+
+### 4.5 Esempi guidati  
+1. **Bell state**  
+   Costruire \(\lvert\Phi^+\rangle\) con H sul qubit 1 e CNOT(1→2).  
+2. **SWAP con CNOT**  
+   Verificare su stati di base l’equivalenza di SWAP e della sequenza di tre CNOT.  
+3. **Fase e π/8**  
+   Applicare \(S\) e \(T\) a \(\lvert1\rangle\) e verificarne la trasformazione di fase.
+
+### 4.6 Esercizi proposti  
+1. Dimostrare che \(H^2 = I\) e \(S^\dagger = S^3\).  
+2. Verificare che CNOT è unitaria e calcolarne l’inversa.  
+3. Progettare un circuito che converta \(\lvert01\rangle\) in \(\lvert10\rangle\) usando un’unica porta SWAP.  
+4. Dimostrare che \(\{H,T,\mathrm{CNOT}\}\) è un set universale (schizzo della dimostrazione Solovay–Kitaev).  
+5. Calcolare la matrice di \(R_x(\pi/2)\) e confrontarla con \(H\).
+
+### 4.7 Riepilogo e key takeaways  
+- Le porte a 1 qubit manipolano ampiezze e fasi (X,Y,Z,H,S,T).  
+- Le porte a 2 qubit creano entanglement (CNOT,CZ) o scambiano stati (SWAP).  
+- Ogni porta quantistica è rappresentata da un operatore unitario invertibile.  
+- Un set ristretto di porte universali consente di realizzare qualunque algoritmo quantistico.
+
+### 4.8 Ulteriori letture  
+- Nielsen & Chuang, “Quantum Computation and Quantum Information”, Capitoli 4–5  
+- IBM Qiskit Textbook, sezione “Quantum gates”  
+- Google Cirq documentation, “Gate primitives”  
+- ArXiv: “Solovay–Kitaev theorem and gate approximation”
