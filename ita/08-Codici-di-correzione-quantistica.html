@@ -1,0 +1,91 @@
+## Capitolo 8: Codici di correzione quantistica
+
+### 8.0 Obiettivi di apprendimento  
+- Comprendere il perché della necessità di codici di correzione nel calcolo quantistico  
+- Descrivere i principali codici elementari: bit-flip, phase-flip, Shor, Steane  
+- Spiegare la costruzione e il funzionamento di codici CSS e topologici  
+- Applicare procedure di rilevamento e correzione di errori su uno o più qubit  
+
+### 8.1 Prerequisiti  
+- Canali di rumore e operatori di Kraus (Capitolo 7)  
+- Matrice densità e misura di proiezione (Capitolo 3–7)  
+- Prodotto tensoriale e porte controllate (Capitolo 4)  
+
+### 8.2 Introduzione e motivazione  
+L’evoluzione non perfetta dei qubit introduce errori che, se non gestiti, compromettono ogni algoritmo. I codici di correzione quantistica replicano e distribuiscono l’informazione su più qubit in modo da individuare e correggere errori di bit-flip, phase-flip o combinati, mantenendo intatte le proprietà di coerenza e sovrapposizione.
+
+### 8.3 Contenuti teorici  
+
+#### 8.3.1 Errore quantistico e ridondanza  
+- Tipologie di errore: bit-flip (\(X\)), phase-flip (\(Z\)), combinato (\(Y\))  
+- Rilevamento tramite operatori di stabilità \(S_i\)  
+- Ridondanza e codifica: mappare \(\lvert\psi\rangle\to\lvert\Psi_L\rangle\) su \(n>1\) qubit  
+
+#### 8.3.2 Codice bit-flip a 3 qubit  
+- Logica: \(\lvert0_L\rangle=|000\rangle,\;\lvert1_L\rangle=|111\rangle\)  
+- Stabilizzatori: \(Z_1Z_2\), \(Z_2Z_3\)  
+- Procedure:  
+  1. Proiezione parità dei primi due e ultimi due qubit  
+  2. Identificazione del qubit errato  
+  3. Applicazione di \(X\) per correggerlo  
+
+#### 8.3.3 Codice phase-flip a 3 qubit  
+- Analo­go bit-flip nel dominio di Hadamard: codifica con \(\lvert\pm\rangle\)  
+- Stabilizzatori: \(X_1X_2\), \(X_2X_3\)  
+- Correzione di \(Z\) su singolo qubit  
+
+#### 8.3.4 Codice di Shor (9 qubit)  
+- Combinazione di tre codici bit-flip su codice phase-flip a 3 qubit:  
+  \(\lvert0_L\rangle = \frac{1}{2\sqrt2}(|000\rangle + |111\rangle)^{\otimes3}\)  
+- Rilevamento e correzione di un errore \(X\) su qualunque qubit e di un errore \(Z\) su ogni blocco  
+
+#### 8.3.5 Codice di Steane (7 qubit)  
+- Basato su codice classico [7,4,3] di Hamming  
+- Stabilizzatori CSS (Calderbank–Shor–Steane)  
+- Protegge simultaneamente da errori \(X\) e \(Z\) con 6 misure di parità  
+
+#### 8.3.6 Codici CSS e concatenazione  
+- Costruzione: due codici lineari classici \(C_1\subset C_2\)  
+- Stati logici: combinazioni di codewords di \(C_1\) e \(C_2^\perp\)  
+- Concatenazione: nidificare codici per migliorare soglia di errore  
+
+#### 8.3.7 Codici topologici  
+- Codice superficie (planare) e torico  
+- Qubit disposti su reticolo bidimensionale  
+- Stabilizzatori locali di plaquette (Z) e di sito (X)  
+- Operazioni logiche tramite stringhe di operatori lungo il reticolo  
+
+### 8.4 Approfondimenti “note a margine”  
+- Soglia di errore critico (\(\sim10^{-2}\)–\(10^{-3}\)) per codici concatenati  
+- Teorema della soglia: tassi di errore sotto il limite consentono calcolo arbitrariamente lungo  
+- Surface code su architetture superconducting qubit (IBM, Google)  
+
+### 8.5 Esempi guidati  
+
+1. Implementazione del codice bit-flip:  
+   - Partire da \(\lvert\psi\rangle=\alpha|0\rangle+\beta|1\rangle\)  
+   - Codifica su 3 qubit, simulare un errore \(X\) su qubit 2  
+   - Eseguire misure di parità e applicare correzione  
+
+2. Codice di Shor step-by-step:  
+   - Costruire blocco phase-flip, poi tre repliche bit-flip  
+   - Simulare errore \(Z\) su blocco 1 e errore \(X\) su blocco 2  
+
+3. Stabilizzatori superficie code:  
+   - Disegnare reticolo 3×3  
+   - Definire operatori plaquette e sito  
+   - Visualizzare stringa di correzione per un singolo errore  
+
+### 8.6 Esercizi proposti  
+
+1. Verificare che i due stabilizzatori \(Z_1Z_2\), \(Z_2Z_3\) commutano e lasciano invariati \(\lvert0_L\rangle,\lvert1_L\rangle\).  
+2. Costruire circuito di codifica e decodifica per il codice phase-flip e simulare un errore \(Z\) su qubit 3.  
+3. Calcolare la distanza minima del codice di Steane e il numero di errori correggibili.  
+4. Confrontare risorse (qubit, operazioni) tra bit-flip, Shor e Steane per correzione di un singolo errore.  
+
+### 8.7 Riepilogo e key takeaways  
+
+- I codici quantistici distribuiscono l’informazione su più qubit per rilevare e correggere errori su singolo qubit  
+- Bit-flip e phase-flip sono esempi base; Shor e Steane combinano entrambe le correzioni  
+- I codici CSS generalizzano l’approccio classico di Hamming al dominio quantistico  
+- I codici topologici (surface code) sfruttano geometria e stabilizzatori locali per elevata soglia di errore
