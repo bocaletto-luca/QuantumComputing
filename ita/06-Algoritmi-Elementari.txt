@@ -1,0 +1,106 @@
+## Capitolo 6: Algoritmi elementari
+
+### 6.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente saprà:  
+- Analizzare il problema risolto dagli algoritmi di Deutsch–Jozsa, Bernstein–Vazirani e Grover.  
+- Costruire e interpretare i circuiti quantistici corrispondenti.  
+- Calcolare la complessità in termini di chiamate all’oracolo o al gate di ricerca.  
+- Confrontare l’efficienza quantistica con quella classica.
+
+### 6.1 Prerequisiti  
+- Costruzione di circuiti quantistici e simbologia (Capitolo 5).  
+- Porte unitarie H, X, CNOT e gate parametrizzati (Capitolo 4).  
+- Stati sovrapposti e entanglement (Capitolo 2–3).  
+
+### 6.2 Introduzione e motivazione  
+Gli algoritmi elementari mostrano come, già con pochi gate, il quantum computing può superare le prestazioni classiche in problemi di verifica di funzioni e di ricerca in database non strutturati. Comprenderli è fondamentale per affrontare algoritmi più complessi come Shor o HHL.
+
+---
+
+### 6.3 Deutsch–Jozsa
+
+#### 6.3.1 Definizione del problema  
+Data una funzione booleana \(f:\{0,1\}^n\to\{0,1\}\) che è **costante** (stesso output per ogni input) o **bilanciata** (metà 0, metà 1), determinare quale delle due con una singola valutazione quantistica.
+
+#### 6.3.2 Circuito quantistico  
+1. Prepara \(n\) qubit di input in \(\lvert0\rangle^{\otimes n}\) e un qubit ancilla in \(\lvert1\rangle\).  
+2. Applica H su tutti i qubit.  
+3. Interroga l’oracolo \(U_f\):  
+   \[
+     U_f\colon |x\rangle|y\rangle \mapsto |x\rangle|y\oplus f(x)\rangle.
+   \]  
+4. Applica nuovamente H sui primi \(n\) qubit.  
+5. Misura i primi \(n\) qubit:  
+   - Tutti zeri ⇒ \(f\) costante  
+   - Almeno un bit a 1 ⇒ \(f\) bilanciata  
+
+#### 6.3.3 Complessità e vantaggio  
+- Quantum: 1 chiamata a \(U_f\).  
+- Classico (deterministico): ≥ \(2^{n-1}+1\) valutazioni.  
+
+#### 6.3.4 Esempio guidato  
+Per \(n=1\), confronta il circuito con l’algoritmo di Deutsch e verifica il risultato.
+
+---
+
+### 6.4 Bernstein–Vazirani
+
+#### 6.4.1 Definizione del problema  
+Esiste un vettore segreto \(s\in\{0,1\}^n\). L’oracolo restituisce \(f_s(x)=s\cdot x\pmod2\). Trovare \(s\).
+
+#### 6.4.2 Circuito quantistico  
+1. Stato iniziale: \(\lvert0\rangle^{\otimes n}\lvert1\rangle\).  
+2. H su tutti i \(n+1\) qubit.  
+3. Applicare \(U_{f_s}\).  
+4. H sui primi \(n\) qubit.  
+5. Misura dei primi \(n\) qubit fornisce direttamente i bit di \(s\).
+
+#### 6.4.3 Complessità e vantaggio  
+- Quantum: 1 chiamata a \(U_{f_s}\).  
+- Classico: \(n\) chiamate a funzioni booleane.  
+
+#### 6.4.4 Esempio guidato  
+Per \(n=3\) e \(s=(1,0,1)\), mostra come i gate H e l’oracolo portino a misure \(\lvert101\rangle\).
+
+---
+
+### 6.5 Grover
+
+#### 6.5.1 Definizione del problema  
+Ricerca di un elemento marcatore in un database non strutturato di \(N=2^n\) voci tramite una funzione oracolo \(f(x)=1\) se “trovato”, 0 altrimenti.
+
+#### 6.5.2 Circuito quantistico  
+1. Prepara \(\lvert0\rangle^{\otimes n}\) e applica H su tutti per generare sovrapposizione uniforme.  
+2. Ripeti \(\lceil \frac{\pi}{4}\sqrt{N}\rceil\) volte:  
+   a. Oracolo \(U_f\): inverte la fase dello stato marcato.  
+   b. Diffusore (inversion-about-average):  
+      - H su tutti, Z su \(\lvert0\rangle^{\otimes n}\), H su tutti.  
+3. Misura: alta probabilità di trovare lo stato marcato.
+
+#### 6.5.3 Complessità e vantaggio  
+- Quantum: \(O(\sqrt{N})\) chiamate a \(U_f\).  
+- Classico: \(O(N)\) valutazioni.  
+
+#### 6.5.4 Esempio guidato  
+Per \(n=2\), scrivi il circuito completo con oracolo e diffusore, quindi calcola la trasformazione su \(\lvert++\rangle\).
+
+---
+
+### 6.6 Esercizi proposti
+
+1. Implementare Deutsch–Jozsa per \(n=2\) con \(f\) bilanciata e verificarne l’esito.  
+2. Simulare Bernstein–Vazirani per \(n=4\) con vettore segreto a scelta.  
+3. Calcolare manualmente l’amplificazione di ampiezza nel passo di Grover per \(N=4\).  
+4. Confrontare numero di misure classiche e quantistiche per ognuno dei tre algoritmi.
+
+### 6.7 Riepilogo e key takeaways
+
+- Deutsch–Jozsa e Bernstein–Vazirani mostrano vantaggio drastico nelle interrogazioni di oracoli.  
+- Grover fornisce accelerazione quadratica nella ricerca non strutturata.  
+- Costruzione e ripetizione di oracolo + diffusore sono centrali nell’amplificazione quantistica.
+
+### 6.8 Ulteriori letture
+
+- Nielsen & Chuang, Capitolo 2.3–2.4 e 6.  
+- Qiskit Textbook, sezioni “Deutsch–Jozsa”, “Bernstein–Vazirani”, “Grover’s algorithm”.  
+- Articoli di review su arXiv: quant-ph/####### (Grover).
