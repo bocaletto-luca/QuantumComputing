@@ -1,0 +1,28 @@
+# Prefazione
+
+## Obiettivi del libro
+
+Questo testo si propone di fornire una panoramica organica e dettagliata dei principi e delle tecniche alla base del calcolo quantistico.  
+L’obiettivo è accompagnare il lettore, passo dopo passo, dalla matematica di base fino agli algoritmi più avanzati, con un approccio teorico e pratico.  
+Ogni capitolo è corredato da esempi concreti, esercizi di verifica e spunti per l’applicazione su simulatori e hardware reali.  
+
+## Perché il quantum computing
+
+Il calcolo quantistico rappresenta una rivoluzione rispetto alla computazione classica, offrendo potenzialità superiori in molti ambiti, dalla crittografia alle simulazioni molecolari.  
+Le leggi della meccanica quantistica – sovrapposizione, entanglement e interferenza – consentono di concepire algoritmi in grado di risolvere problemi in tempi impraticabili per i computer tradizionali.  
+Comprendere questi concetti apre nuove prospettive di ricerca e sviluppo nel settore ICT, nella scienza dei materiali, nell’intelligenza artificiale e nella sicurezza informatica.  
+
+## Guida all’utilizzo di questo manuale
+
+Il volume è suddiviso in otto parti, organizzate in progressione logica:
+
+- Parte I: Fondamenti matematici e fisici, per consolidare le basi necessarie.  
+- Parte II: Qubit e porte quantistiche, con focus su rappresentazione e manipolazione degli stati.  
+- Parte III: Circuiti e algoritmi di base, per costruire i primi esempi operativi.  
+- Parte IV: Errori e correzione, dedicata al rumore e alle tecniche di protezione dei dati quantistici.  
+- Parte V: Hardware quantistico, per approfondire tecnologie di qubit e sistemi di controllo.  
+- Parte VI: Piattaforme software, con esempi su simulatori e framework open source.  
+- Parte VII: Algoritmi avanzati e applicazioni, per esplorare scenari reali di utilizzo.  
+- Parte VIII: Best practice di sviluppo, con linee guida per documentazione, testing e collaborazione.
+
+Ciascun capitolo termina con una sezione di esercizi mirati e soluzioni commentate. I riferimenti bibliografici e le risorse online, segnalate in appendice, supportano l’approfondimento autonomo.
