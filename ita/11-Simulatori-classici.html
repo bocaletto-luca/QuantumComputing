@@ -1,0 +1,74 @@
+## Capitolo 11: Simulatori classici
+
+### 11.0 Obiettivi di apprendimento  
+- Conoscere le tipologie di simulazione classica di circuiti quantistici: vettori di stato, matrici densità, stabilizzatori, tensor network  
+- Valutare costi computazionali (memoria, tempo) delle diverse tecniche  
+- Configurare e utilizzare framework open source (Qiskit Aer, Cirq, Pennylane, Qulacs)  
+- Simulare algoritmi con rumore e misurare statistiche di uscita
+
+### 11.1 Prerequisiti  
+- Modello a circuito quantistico e porte elementari (Capitoli 4–5)  
+- Matrice densità e canali di rumore (Capitolo 7)  
+- Nozioni base di Python o linguaggi supportati dai framework scelti  
+
+### 11.2 Introduzione e motivazione  
+I simulatori classici permettono di emulare il comportamento di circuiti quantistici su hardware convenzionale, indispensabili per debug, sviluppo di algoritmi e confronto con risultati sperimentali. Ogni approccio di simulazione presenta compromessi tra accuratezza e scalabilità.
+
+### 11.3 Contenuti teorici  
+
+#### 11.3.1 Simulazione con vettori di stato  
+- Rappresentazione completa dello stato come vettore di ampiezze \(\psi \in \mathbb{C}^{2^n}\)  
+- Applicazione diretta di matrici unitarie  
+- Complessità in memoria \(O(2^n)\) e tempo \(O(2^n)\)
+
+#### 11.3.2 Simulazione con matrici densità  
+- Descrizione di stati puri e misti, inclusi canali CPTP  
+- Calcolo di evoluzioni rumorose tramite \(\rho' = \sum_k K_k \rho K_k^\dagger\)  
+- Memoria \(O(4^n)\), adatto a pochi qubit con rumore
+
+#### 11.3.3 Simulazione stabilizzatori  
+- Algoritmo di Gottesman–Knill per circuiti composti da X, Z, S, H, CNOT  
+- Rappresentazione compatta di vettori e operatori  
+- Scalabilità a centinaia di qubit, ma limitato a porte Clifford
+
+#### 11.3.4 Tensor network e contrazioni  
+- Mappatura del circuito su grafo: ogni porta è un tensore  
+- Contrazione sequenziale per ridurre complessità in presenza di bassa entanglement  
+- Applicato a circuiti profondi ma con bassa larghezza di entanglement
+
+#### 11.3.5 Framework principali  
+- **Qiskit Aer**: statevector, density matrix, QASM simulator con shots  
+- **Cirq**: simulatore nativo, supporto default per rumore parametrico  
+- **Pennylane**: ibrido quantum-classical, back-end NumPy e TensorFlow  
+- **Qulacs**: ottimizzato in C++, API Python, supporto GPU
+
+### 11.4 Note a margine  
+- GPU vs CPU: librerie CUDA per vettori di stato e matrici densità  
+- Simulazione distribuita su cluster: MPI e Dask  
+- Strumenti di profiling per circuiti: depth, num_qubits, num_gates
+
+### 11.5 Esempi guidati  
+
+1. Simulare un circuito di Grover su 3 qubit con Qiskit Aer statevector.  
+2. Emulare rumore di dephasing su un circuito GHZ con simulator density matrix.  
+3. Validare un circuito Clifford di 100 qubit con simulatore stabilizzatori di Cirq.  
+4. Contrarre manualmente un piccolo tensor network per una rotazione parametrica su 4 qubit.
+
+### 11.6 Esercizi proposti  
+
+1. Confrontare risultati e tempi di simulazione di un circuito H–CNOT–H su 8 qubit con Qiskit Aer e Qulacs.  
+2. Implementare un canale di depolarizing in Pennylane e misurare impatto sulle probabilità di misura.  
+3. Determinare il numero massimo di qubit simulabili con metodo stabilizzatori per un numero di porte Clifford variabile.  
+4. Utilizzare tensor network per simulare un circuito a entanglement basso di 20 qubit, valutando occupazione di memoria.
+
+### 11.7 Riepilogo e key takeaways  
+- I simulatori a vettore di stato e matrici densità offrono massima generalità ma scalano esponenzialmente.  
+- Simulatori stabilizzatori supportano un’ampia classe di circuiti con scalabilità elevata.  
+- Tensor network bilancia accuratezza e complessità su circuiti con basso entanglement.  
+- La scelta del framework dipende da obiettivi: sviluppo algoritmi, test rumore, benchmarking.
+
+### 11.8 Ulteriori letture  
+- C. Sim et al., “A high-performance simul­ator for quantum circuits” (arXiv 2020)  
+- S. Bravyi & J. Haah, “Simulation of quantum circuits by low-rank stabilizer decompositions” (PRL 2019)  
+- Qiskit Documentation – Aer Tutorials  
+- Cirq Guides – Noise Modeling
