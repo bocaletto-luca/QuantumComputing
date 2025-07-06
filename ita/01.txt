@@ -1,0 +1,92 @@
+# Capitolo 1: Matematica di base
+
+## 1.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente saprà:  
+- Definire e riconoscere spazi vettoriali e sotto-spazi.  
+- Calcolare prodotti scalari e norme in \(\mathbb{R}^n\) e \(\mathbb{C}^n\).  
+- Determinare autovalori e autovettori di matrici quadrate.  
+- Utilizzare numeri complessi in forma algebrica e polare.
+
+## 1.1 Prerequisiti  
+- Calcolo algebrico di base (sistemi lineari)  
+- Nozioni elementari di trigonometria  
+- Concetti elementari di funzioni e grafici
+
+## 1.2 Introduzione e motivazione  
+Il formalismo vettoriale è il linguaggio in cui si esprime ogni stato quantistico. Comprendere come manipolare vettori, matrici e numeri complessi è indispensabile per descrivere le operazioni di un qubit e le trasformazioni unitarie.
+
+## 1.3 Spazi vettoriali  
+
+### 1.3.1 Definizione  
+- Assiomi di spazio vettoriale (somma, scalare)  
+- Esempi: \(\mathbb{R}^2, \mathbb{R}^3, \mathbb{C}^n\)
+
+### 1.3.2 Sotto-spazi e basi  
+- Sottospazio generato  
+- Indipendenza lineare, base, dimensione  
+
+#### Esempio 1.3.2  
+Determinare una base di \(\{(1,2,3), (2,4,6), (1,0,1)\}\subset\mathbb{R}^3\).
+
+## 1.4 Prodotto scalare e norme  
+
+### 1.4.1 Definizione formale  
+- Proprietà (linearità, simmetria coniugata, positività)  
+- Norma indotta  
+
+### 1.4.2 Interpretazione geometrica  
+- Angolo tra vettori  
+- Paral­lelogramma di Minkowski  
+
+#### Esempio 1.4.2  
+Calcolare \(\langle (1,i),(2,-i)\rangle\) e il relativo angolo.
+
+## 1.5 Matrici, operatori lineari e autovalori  
+
+### 1.5.1 Matrici come trasformazioni lineari  
+- Composizione, invertibilità, traccia, determinante
+
+### 1.5.2 Autovalori e autovettori  
+- Polinomio caratteristico  
+- Diagonalizzazione
+
+#### Esempio 1.5.2  
+Trova autovalori e autovettori di  
+\(\displaystyle A=\begin{pmatrix}2&1\\1&2\end{pmatrix}\).
+
+## 1.6 Numeri complessi  
+
+### 1.6.1 Forma algebrica e polare  
+- Conversione  
+- Proprietà di moltiplicazione e divisione  
+
+### 1.6.2 Fase globale di uno stato quantistico  
+- Significato fisico  
+
+#### Nota a margine  
+La fase globale non modifica le probabilità di misura.
+
+## 1.7 Esempi guidati  
+
+1. Rappresentare sul piano complesso \(3 + 4i\).  
+2. Verificare che una matrice 2×2 è unitaria.  
+3. Costruire lo spazio generato da due vettori indipendenti.
+
+## 1.8 Esercizi proposti  
+
+1. Dimostrare che ogni spazio vettoriale di dimensione finita ha base.  
+2. Calcolare norma e prodotto scalare in \(\mathbb{C}^3\).  
+3. Diagonalizzare \(\begin{pmatrix}0&-i\\i&0\end{pmatrix}\).
+
+## 1.9 Riepilogo e key takeaways  
+
+- Gli spazi vettoriali e i prodotti scalari sono alla base della rappresentazione dei qubit.  
+- Le matrici unitarie descrivono le trasformazioni quantistiche.  
+- I numeri complessi permettono di rappresentare ampiezze e fasi.
+
+## 1.10 Ulteriori letture  
+- “Linear Algebra Done Right” di Sheldon Axler  
+- Appunti MIT OCW – Linear Algebra (Gilbert Strang)  
+- Risorse online: Khan Academy, 3Blue1Brown (YouTube)
+
+---
