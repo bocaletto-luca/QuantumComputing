@@ -1,0 +1,102 @@
+## Capitolo 5: Costruzione di circuiti quantistici
+
+### 5.0 Obiettivi di apprendimento  
+Al termine di questo capitolo lo studente dovrà saper:  
+- Tradurre operatori unitari in schemi circuitali standard.  
+- Interpretare il diagramma a linee temporali, porte e misure.  
+- Comporre porte elementari in sequenze e parallele.  
+- Decomporre una matrice 2×2 o 4×4 in un set universale di porte.
+
+### 5.1 Prerequisiti  
+- Porte unitarie a 1 e 2 qubit (Capitolo 4).  
+- Prodotto tensoriale e spazi multi-qubit (Capitolo 3).  
+- Nozioni base di unitarietà e gate universali.
+
+### 5.2 Introduzione e motivazione  
+Il modello a circuito è l’astrazione dominante in calcolo quantistico: ogni algoritmo è una successione di porte, misure e operazioni classiche. Comprendere come rappresentare e manipolare questi circuiti è essenziale per implementare e simulare algoritmi sia su simulatori software sia su hardware reale.
+
+---
+
+### 5.3 Contenuti teorici
+
+#### 5.3.1 Diagrammi circuitali  
+- Ogni qubit corrisponde a una linea orizzontale che evolve da sinistra a destra.  
+- Le porte sono simboli:  
+  -  ■  per X, Y, Z, H, S, T (singolo qubit).  
+  -  —●—⊕—  per CNOT (● sul controllo, ⊕ sul target).  
+  -  —●—●—  per CZ, ecc.  
+- Misura: simbolo  ┴  collegato a una linea classica (spesso tratteggiata).  
+- Reset o preparazione: simbolo  ↺  o  |0⟩.
+
+#### 5.3.2 Notazione e simbologia  
+- Linee continue: qubit; linee tratteggiate: bit classici (risultato di misura).  
+- Ogni porta è etichettata con il nome o con parametri (es. Rₓ(π/2)).  
+- Diagrammi multilivello: porte parallele se non agiscono sullo stesso qubit.  
+- Profondità (“depth”): numero di strati di porte applicate in serie.
+
+#### 5.3.3 Decomposizione di unitarie  
+- Qualunque U∈U(2) si può scrivere come:  
+  U = e^{iα} Rₙ(θ) Rₘ(ϕ)  (rotazioni attorno a assi n, m).  
+- Esempio di decomposizione di una rotazione generica:  
+  R_z(ϕ) R_y(θ) R_z(λ).  
+- U(4): si usa la decomposizione a blocchi di CNOT e porte locali (es. KAK decomposition).
+
+#### 5.3.4 Ottimizzazione e complessità  
+- Minimizzare il numero di CNOT (gate costosi nel rumore).  
+- Parallelismo: applicare porte su qubit differenti nello stesso “layer”.  
+- Trade-off fra profondità e ampiezza del circuito (numero di qubit attivi).  
+
+---
+
+### 5.4 Esempi guidati
+
+1. **Circuito “Hello World”**  
+   Preparare \(|+\rangle\) e misurare:  
+   ```
+   |0>──H───┬───┴─┐
+             │      M
+   ```
+   Descrizione: H sul qubit, poi misura (risultato 0/1 con prob. 50%).
+
+2. **Stato GHZ a tre qubit**  
+   ```
+   |0>──H───●──────┐
+             │      │
+   |0>──────⊕──●───┴─┐
+                    │
+   |0>─────────────⊕─┴─┐
+                      M
+   ```
+   Spiegazione: H su q₀, CNOT q₀→q₁, CNOT q₀→q₂, poi misure su tutti.
+
+3. **Decomposizione di Rₓ(π/4)**  
+   Realizzabile con T e H:  
+   Rₓ(π/4) = H T H (fissare fasi globali opportunamente).
+
+---
+
+### 5.5 Esercizi proposti
+
+1. Disegnare il circuito che realizza lo swap di due qubit usando solo CNOT.  
+2. Partendo dalla matrice unitaria  
+   \(\displaystyle U = \frac{1}{\sqrt2}\begin{pmatrix}1 & i\\i & 1\end{pmatrix}\),  
+   decomporla in rotazioni R_z e R_y e rappresentarla come sequenza di porte.  
+3. Calcolare la profondità minima di un circuito che applica un CNOT fra q₀ e q₃ in un dispositivo a connettività lineare q₀–q₁–q₂–q₃.  
+4. Progettare un circuito che, partendo da \(|00\rangle\), produca lo stato  
+   \(\tfrac{1}{2}(|00\rangle + |01\rangle + |10\rangle - |11\rangle)\).
+
+---
+
+### 5.6 Riepilogo e key takeaways
+
+- Il modello a circuito esprime ogni algoritmo come una sequenza di porte e misure.  
+- I diagrammi circuitali usano linee orizzontali (qubit), simbologia standard per porte e misure.  
+- La decomposizione di unitarie in porte elementari è necessaria sia per la simulazione sia per l’implementazione hardware.  
+- L’ottimizzazione del circuito mira a ridurre profondità e numero di porte costose (CNOT).
+
+### 5.7 Ulteriori letture
+
+- Nielsen & Chuang, “Quantum Computation and Quantum Information”, Capitolo 4.  
+- Qiskit Textbook, sezione “Quantum circuits”.  
+- Cirq Documentation, “Circuit and gate operations.”  
+- ArXiv: “Quantum circuit optimization techniques.”
