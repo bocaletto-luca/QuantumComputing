@@ -1,0 +1,84 @@
+## Capitolo 13: Algoritmi avanzati
+
+### 13.0 Obiettivi di apprendimento  
+- Comprendere il funzionamento dell’algoritmo di Shor per la fattorizzazione di interi  
+- Analizzare la Quantum Fourier Transform (QFT) e la sua implementazione circuitale  
+- Descrivere l’algoritmo HHL per la soluzione di sistemi lineari  
+- Valutare complessità e limiti pratici di Shor e HHL  
+
+### 13.1 Prerequisiti  
+- Costruzione di circuiti e QFT elementare (Capitolo 5)  
+- Porte parametrizzate e controlled-phase (Capitolo 4)  
+- Nozioni di probabilità di misura e post‐selezione (Capitolo 2)  
+
+### 13.2 Introduzione e motivazione  
+Shor e HHL sono fra gli algoritmi quantistici che mostrano vantaggi esponenziali (Shor) o polinomiali (HHL) rispetto ai metodi classici. Shor rivoluziona la crittografia a chiave pubblica, HHL apre prospettive nella simulazione scientifica e nell’ottimizzazione.
+
+### 13.3 Contenuti teorici
+
+#### 13.3.1 Quantum Fourier Transform (QFT)  
+- Definizione su \(n\) qubit:  
+  \[
+    \mathrm{QFT}\,\lvert x\rangle = \frac{1}{\sqrt{2^n}}\sum_{k=0}^{2^n-1}e^{2\pi i\,xk/2^n}\lvert k\rangle.
+  \]  
+- Circuito:  
+  - H su qubit più significativo  
+  - Controlled-\(R_k\) tra i qubit in ordine decrescente  
+  - Swap dei qubit per invertire l’ordine  
+
+#### 13.3.2 Algoritmo di Shor  
+1. **Riduzione a problema di periodo**  
+   - Scegli un intero \(a\) con \(\gcd(a,N)=1\).  
+   - Periodo \(r\) di \(f(x)=a^x \bmod N\).  
+2. **Implementazione quantum**  
+   - Registro di controllo \(2n\) qubit inizializzato a superposizione  
+   - Registro di lavoro \(n\) qubit per calcolare \(a^x\bmod N\) tramite modular exponentiation  
+   - Applicazione di QFT inversa sul registro di controllo  
+   - Misura per stimare \(r\)  
+3. **Estrazione dei fattori**  
+   - Se \(r\) pari e \(a^{r/2}\not\equiv -1\pmod N\), allora \(\gcd(a^{r/2}\pm1, N)\) fornisce un fattore non banale  
+
+#### 13.3.3 Algoritmo HHL (Harrow–Hassidim–Lloyd)  
+1. **Obiettivo**: risolvere \(A\,\vec{x} = \vec{b}\) per vettori e matrici sparse e ben condizionate  
+2. **Procedura**  
+   - Codifica \(\lvert b\rangle\) in register quantistico  
+   - Phase estimation su evoluzione \(e^{iAt}\) per ottenere autovalori \(\lambda_j\)  
+   - Rotazione condizionata e inversione di \(\lambda_j\)  
+   - Inverse phase estimation e misura del register ausiliario  
+   - Ottenimento di \(\lvert x\rangle\propto A^{-1}\lvert b\rangle\)  
+3. **Condizioni di fattibilità**  
+   - Matrix \(A\) deve essere sparsa (\(O(\mathrm{poly}(n))\) elementi non‐zero)  
+   - Condizionamento (rapporto massimo/minimo autovalore) limitato  
+
+### 13.4 Esempi guidati  
+
+1. **QFT su 3 qubit**  
+   - Costruzione circuito con gate \(R_k\)  
+   - Verifica su base computazionale  
+
+2. **Shor per \(N=15\)**  
+   - Scelta di \(a=7\), implementazione semplificata di modular exponentiation  
+   - Simulazione classica del circuito di controllo–QFT–misura  
+
+3. **HHL per 2×2**  
+   - Matrice \(A=\begin{pmatrix}1&1\\1&2\end{pmatrix}\), vettore \(\vec b=(1,0)\)  
+   - Esecuzione di phase estimation con un singolo qubit ausiliario  
+   - Rotazione condizionata e ricostruzione di \(\lvert x\rangle\)  
+
+### 13.5 Esercizi proposti  
+
+1. Progettare il circuito QFT inversa su 4 qubit e validarlo su \(\lvert5\rangle\).  
+2. Simulare Shor per \(N=21\) scegliendo un opportuno \(a\), stimare la probabilità di successo.  
+3. Stimare la complessità asintotica di HHL in funzione della condizione di \(A\) e della dimensione \(n\).  
+4. Analizzare gli effetti di errore di phase estimation sulla precisione di HHL.
+
+### 13.6 Riepilogo e key takeaways  
+- QFT è rudimentale per algoritmi di periodo e offre trasformazione dei registri in complessità polinomiale  
+- Shor sfrutta QFT e modular exponentiation per fattorizzare interi in tempo quantistico polinomiale  
+- HHL applica phase estimation e rotazioni condizionate per invertire matrici sparsa e ben condizionate  
+
+### 13.7 Ulteriori letture  
+- P. Shor, “Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms” (SIAM J. Comp. 1997)  
+- A. Harrow, A. Hassidim, S. Lloyd, “Quantum Algorithm for Linear Systems of Equations” (PRL 2009)  
+- Nielsen & Chuang, Capitolo 5 (QFT) e Capitolo 6 (algoritmi avanzati)  
+- Articoli di review su arXiv: quant-ph/####### (HHL improvements)
