@@ -1,0 +1,88 @@
+# Capitolo 14: Applicazioni reali
+
+## 14.0 Obiettivi di apprendimento  
+- Identificare i principali ambiti in cui il calcolo quantistico offre vantaggi concreti  
+- Tradurre problemi di chimica quantistica in circuiti eseguibili  
+- Costruire e analizzare circuiti per ottimizzazione combinatoria e machine learning quantistico  
+- Descrivere protocolli e misure di sicurezza per comunicazione e crittografia quantistica  
+
+## 14.1 Prerequisiti  
+- Algoritmi avanzati: Shor, HHL, QFT (Capitolo 13)  
+- Simulatori e framework open source (Capitoli 11–12)  
+- Basi di chimica molecolare e teoria dei grafi  
+
+## 14.2 Introduzione e motivazione  
+Le applicazioni reali del quantum computing spaziano dalla simulazione di molecole complesse alla risoluzione di problemi NP-hard, fino a protocolli di comunicazione intrinsecamente sicuri. I metodi ibridi e le reti quantistiche estendono il potenziale delle macchine NISQ, fornendo pilastri per lo sviluppo industriale e scientifico.
+
+## 14.3 Contenuti teorici  
+
+### 14.3.1 Chimica quantistica e simulazioni molecolari  
+- Mapping fermionico→qubit: trasformazioni Jordan–Wigner e Bravyi–Kitaev  
+- Hamiltoniana elettronica in seconda quantizzazione  
+- Variational Quantum Eigensolver (VQE)  
+  - Definizione ansatz (UCCSD, hardware-efficient)  
+  - Loop di ottimizzazione classico–quantistico  
+  - Calcolo dell’energia di stato fondamentale  
+
+### 14.3.2 Ottimizzazione combinatoria  
+- Formulazione QUBO e modello di Ising  
+- Quantum Approximate Optimization Algorithm (QAOA)  
+  - Circuito parametrizzato: alternanza di operatori di costo e mixer  
+  - Parametri γ, β e profondità p  
+  - Trade-off tra qualità della soluzione e complessità del circuito  
+
+### 14.3.3 Machine learning quantistico  
+- Quantum feature map e kernel quantistici (QSVM)  
+- Circuiti parametrizzati e gradienti (variational quantum circuits)  
+- Quantum Generative Adversarial Network (QGAN)  
+- Metriche di performance: accuratezza, perdita, fidelità  
+
+### 14.3.4 Crittografia e comunicazione quantistica  
+- Quantum Key Distribution (QKD): protocolli BB84, E91  
+- Teletrasporto quantistico: uso di entanglement e misura Bell  
+- Sicurezza post-quantum e minacce alle infrastrutture classiche  
+- Reti quantistiche e quantum repeater  
+
+## 14.4 Note a margine  
+- Limiti NISQ e varianti error-mitigated per VQE e QAOA  
+- Integrazione HPC–quantum per workflow ibride  
+- Stato dell’arte dei quantum repeater per comunicazioni su lunga distanza  
+
+## 14.5 Esempi guidati  
+
+1. **VQE per H₂**  
+   - Mapping di H₂ su 4 qubit (Jordan–Wigner)  
+   - Definizione ansatz hardware-efficient  
+   - Loop di ottimizzazione con simulatore a matrice densità  
+
+2. **QAOA per MaxCut (grafo 6 nodi)**  
+   - Conversione del problema in Hamiltoniana di Ising  
+   - Costruzione circuito QAOA con p=2  
+   - Calcolo dell’approximation ratio su simulator statevector  
+
+3. **QSVM per dataset XOR**  
+   - Feature map parametrica su 2 qubit  
+   - Addestramento classico con misure su simulator shot-based  
+   - Analisi di accuratezza e sensibilità al rumore  
+
+4. **BB84 in circuito**  
+   - Preparazione e misura di stati nei basi Z/X  
+   - Simulazione di intercettazione e calcolo del Quantum Bit Error Rate (QBER)  
+
+## 14.6 Esercizi proposti  
+
+1. Simulare VQE per HeH⁺ usando 2 qubit, confrontare energia ottenuta con valore esatto.  
+2. Eseguire QAOA p=1 su grafo K₅ e stimare probabilità di taglio massimo.  
+3. Progettare un QGAN su 1 qubit generatore e 1 qubit discriminatore, addestrare su distribuzione binaria.  
+4. Calcolare entanglement fidelity in un protocollo di teletrasporto simulato con rumore di depolarizing p=0.1.  
+
+## 14.7 Riepilogo e key takeaways  
+- Le simulazioni molecolari (VQE) e l’ottimizzazione (QAOA) rappresentano i primi usi concreti in ambito NISQ  
+- Il machine learning quantistico sfrutta circuiti parametrizzati e tecniche ibride per classificazione e generazione  
+- QKD e teletrasporto quantistico sono protocolli di sicurezza intrinseca basati su entanglement e principi di non-clonazione  
+
+## 14.8 Ulteriori letture  
+- A. Peruzzo et al., “A variational eigenvalue solver on a photonic quantum processor” (Nat. Comms 2014)  
+- E. Farhi et al., “A quantum approximate optimization algorithm” (arXiv 2014)  
+- S. Schuld & F. Petruccione, “Supervised Learning with Quantum Computers” (Springer 2018)  
+- N. Gisin et al., “Quantum Cryptography” (Rev. Mod. Phys. 2002)
