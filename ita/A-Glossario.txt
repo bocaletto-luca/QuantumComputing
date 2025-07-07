@@ -1,0 +1,22 @@
+## Appendice A: Glossario
+
+| Termine                         | Definizione                                                                                             |
+|---------------------------------|---------------------------------------------------------------------------------------------------------|
+| Qubit                           | Unità di informazione quantistica, rappresentabile da uno stato normalizzato in \(\mathbb{C}^2\).      |
+| Stato puro                      | Stato descritto da un vettore \(\lvert\psi\rangle\); matrice densità \(\rho\) soddisfa \(\rho^2=\rho\). |
+| Stato misto                     | Combinazione statistica di stati puri; \(\rho^2\neq\rho\), \(\mathrm{tr}(\rho)=1\).                    |
+| Bloch sphere                    | Rappresentazione geometrica di uno stato puro di qubit mediante coordinate \((x,y,z)\) su sfera unitaria.|
+| Superposizione                  | Principio che ogni combinazione lineare di stati validi è uno stato fisico realizzabile.               |
+| Entanglement                    | Correlazione quantistica fra più qubit tale che lo stato globale non si fattorizza in stati locali.     |
+| Unitarietà                      | Proprietà di un operatore \(U\) con \(U^\dagger U = UU^\dagger = I\); garantisce evoluzione reversibile.|
+| Circuito quantistico            | Rappresentazione di un algoritmo quantistico come sequenza di porte e misure su linee temporali.        |
+| Gate                            | Operatore elementare (unitario) che agisce su uno o più qubit, es. X, H, CNOT.                           |
+| Matrice densità (\(\rho\))      | Descrive stati puri e misti; è hermitiana, positiva e con \(\mathrm{tr}(\rho)=1\).                      |
+| Canale CPTP                     | Mappa di stato \(\rho\mapsto\sum_kK_k\rho K_k^\dagger\) completamente positiva e trace-preserving.     |
+| Operatori di Kraus (\(K_k\))    | Insieme di operatori che definiscono un canale CPTP; \(\sum_kK_k^\dagger K_k=I\).                        |
+| Stabilizzatore                  | Operatore che lascia invarianti gli stati di codice in un codice di correzione quantistica.             |
+| Quantum Fourier Transform (QFT) | Trasformazione discreta su registri di qubit, fondamentale per algoritmi di periodo e Shor.              |
+| Variational Quantum Eigensolver | Algoritmo ibrido che ottimizza parametri di un ansatz per stimare autovalori di Hamiltoniane.            |
+| Quantum Approximate Optimization Algorithm (QAOA) | Strategie parametrizzate per approssimare soluzioni di problemi QUBO.             |
+| Quantum Key Distribution (QKD)  | Protocollo per scambio sicuro di chiavi basato su principi quantistici (es. BB84, E91).                  |
+| Quantum Volume                  | Metri­ca di benchmarking che valuta capacità complessiva di un processore quantistico.                   |
