@@ -1,0 +1,67 @@
+# Capitolo 15: Documentazione e versioning
+
+## 15.0 Obiettivi di apprendimento  
+- Applicare criteri di documentazione tecnica per progetti quantistici  
+- Strutturare README, guide introduttive e API reference  
+- Definire convenzioni di naming e versioning semanticamente corrette  
+- Configurare workflow di rilascio e tagging su repository Git  
+
+## 15.1 Prerequisiti  
+- Conoscenza base di Git e repository remoti  
+- Familiarità con linguaggi di documentazione (Markdown, reStructuredText)  
+- Esperienza minima nella creazione di pacchetti Python o C++  
+
+## 15.2 Introduzione e motivazione  
+Una documentazione chiara e un versioning strutturato garantiscono la manutenibilità, la collaborazione e la diffusione efficace di librerie e progetti per il calcolo quantistico.
+
+## 15.3 Contenuti teorici  
+
+### 15.3.1 Struttura minima di un progetto  
+- **README.md**: panoramica, requisiti, installazione, esempio rapido  
+- **LICENSE**: scelta della licenza (MIT, Apache-2.0, GPL-3.0)  
+- **CHANGELOG.md**: registro delle modifiche organizzato per release  
+- **CONTRIBUTING.md**: linee guida per contributori, stile di codice, workflow  
+
+### 15.3.2 Convenzioni di naming e versioning  
+- **Semantic Versioning**: MAJOR.MINOR.PATCH  
+  - Major: rotture di compatibilità  
+  - Minor: nuove funzionalità retrocompatibili  
+  - Patch: correzioni di bug  
+- **Branch strategy**:  
+  - `main` o `master` per release stabili  
+  - `develop` per integrazione continua  
+  - feature/bugfix branches con prefisso  
+
+### 15.3.3 API reference e autodocumentazione  
+- Strumenti: Sphinx (Python), Doxygen (C/C++)  
+- Docstring style: NumPy/Sphinx per Python; commenti Javadoc-style per C++  
+- Generazione automatica di HTML, PDF e hosting su ReadTheDocs  
+
+### 15.3.4 Workflow di rilascio  
+- **Tagging**: `git tag -a v1.2.0 -m "Release 1.2.0"`  
+- **Release assets**: pacchetti source, wheel, binari, documentazione  
+- **Continuous Delivery**: integrazione GitHub Actions/GitLab CI per build, test, deploy  
+
+## 15.4 Esempi guidati  
+1. **Creazione README**  
+   - Sezioni: introduzione, installazione (`pip install quantumlib`), utilizzo base, link documentazione  
+2. **Configurazione Sphinx**  
+   - `sphinx-quickstart`, estensione `sphinx.ext.autodoc`, generazione `make html`  
+3. **Semantic Release con GitHub Actions**  
+   - Workflow YAML: step per checkout, setup Python, test, bump version, tag e publish  
+
+## 15.5 Esercizi proposti  
+1. Scrivere un file `CONTRIBUTING.md` che descriva regole di commit, branch e code review  
+2. Configurare un workflow GitHub Actions che esegua test e aggiorni il CHANGELOG automaticamente  
+3. Definire la strategia di versioning per un progetto che introduce nuove API ogni mese e bugfix settimanali  
+
+## 15.6 Riepilogo e key takeaways  
+- Una struttura standard di file facilita l’adozione da parte della community  
+- Semantic Versioning e branch strategy garantiscono chiarezza nel ciclo di vita del software  
+- L’autodocumentazione e CI/CD rendono il rilascio replicabile e affidabile  
+
+## 15.7 Ulteriori letture  
+- “Pro Git” di Scott Chacon & Ben Straub (Capitolo sul branching model)  
+- Semantic Versioning Specification (semver.org)  
+- Sphinx Documentation – Autodoc Tutorial  
+- GitHub Actions Documentation – Continuous Deployment
