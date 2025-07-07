@@ -1,0 +1,66 @@
+# Capitolo 16: Testing e validazione
+
+## 16.0 Obiettivi di apprendimento  
+- Progettare suite di test per progetti quantistici e circuiti  
+- Applicare unit test, integration test e regression test  
+- Impiegare mocking per simulare backend quantistici  
+- Utilizzare metriche di coverage e quality gate
+
+## 16.1 Prerequisiti  
+- Familiarità con Python e framework di test (pytest, unittest)  
+- Conoscenza di simulatori quantistici (Capitoli 11–12)  
+- Nozioni base di repository e CI/CD (Capitolo 15)
+
+## 16.2 Introduzione e motivazione  
+Il testing garantisce che le funzioni matematiche, la costruzione di circuiti e l’integrazione con simulatori/hardware producano risultati attesi nel tempo. Una strategia di test strutturata rende il codice affidabile e facilita la collaborazione.
+
+## 16.3 Contenuti teorici
+
+### 16.3.1 Tipologie di test  
+- **Unit test**: controllano singole funzioni o classi, ad esempio generatori di matrici di gate o helper matematici  
+- **Integration test**: verificano pipeline complete, dall’inizializzazione del circuito all’esecuzione sul simulatore  
+- **Regression test**: confrontano output attuali e storici (golden outputs) per individuare regressioni  
+
+### 16.3.2 Mocking di backend quantistici  
+- Creazione di stub o mock per oggetti Qiskit Backend, Cirq Simulator, pyQuil QVM  
+- Configurazione di fixture in pytest per parametrizzare diversi back-end  
+- Simulazione di risposte hardware: pattern di misure, QBER, codeword di correzione
+
+### 16.3.3 Metriche e quality gate  
+- **Code coverage**: percentuale di linee di codice esercitate dai test, target > 80%  
+- **Quality gate**: regole CI che bloccano il merge in caso di failure o coverage insufficiente  
+- **Performance benchmark**: misurazione di tempo di esecuzione di circuiti critici e limiti di latenze in simulazione
+
+## 16.4 Esempi guidati  
+
+1. **Unit test di Rotazione Z**  
+   - Funzione `rz(theta)` restituisce matrice \(R_z(\theta)\)  
+   - Test su valori \(\theta = 0, \pi/2, \pi\) e verifica di unitary e traccia
+
+2. **Integration test di circuito GHZ**  
+   - Costruzione di un circuito H–CNOT\(_{01}\)–CNOT\(_{02}\)  
+   - Esecuzione su Qiskit Aer density–matrix simulator  
+   - Confronto matrice densità risultante con stato teorico
+
+3. **Mocking di backend con errore di misura**  
+   - Definizione di un fake backend che introduce confusione \(\varepsilon\)  
+   - Test di routine di correzione di misura che stima e compensa errori
+
+## 16.5 Esercizi proposti  
+
+1. Scrivere unit test per funzione che compone due matrici di gate \(U\) e \(V\), verificando \(UV\).  
+2. Creare integration test per algoritmo di Deutsch–Jozsa su 2 qubit, includendo oracolo costante e bilanciato.  
+3. Implementare fixture parametrica in pytest per testare un circuito su simulatori statevector e stabilizzatori.  
+4. Configurare un quality gate in GitHub Actions che fallisca se il coverage scende sotto il 90%.
+
+## 16.6 Riepilogo e key takeaways  
+- Unit test isolano errori di implementazione di funzioni matematiche e helper  
+- Integration test garantiscono corretto funzionamento end-to-end su simulatori  
+- Mocking permette di testare flussi di correzione e interazione con hardware  
+- CI/CD con quality gate e coverage assicura stabilità nel tempo
+
+## 16.7 Ulteriori letture  
+- pytest Documentation – Fixtures, parametrization and mocking  
+- Kent Beck, “Test-Driven Development: By Example”  
+- Qiskit Ignis – Esempi di benchmarking e test di affidabilità  
+- GitHub Actions – Code coverage and quality gate setup
