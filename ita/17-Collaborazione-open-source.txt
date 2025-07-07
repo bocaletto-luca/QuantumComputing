@@ -1,0 +1,61 @@
+## Capitolo 17: Collaborazione open source
+
+### 17.0 Obiettivi di apprendimento  
+- Comprendere dinamiche e buone pratiche di gestione di un progetto open source  
+- Definire e pubblicare linee guida per contributori (CONTRIBUTING.md, CODE_OF_CONDUCT)  
+- Gestire issue, pull request e code review in team distribuiti  
+- Pianificare roadmap, milestone e flussi di rilascio  
+
+### 17.1 Prerequisiti  
+- Familiarità con Git, GitHub/GitLab e flusso di lavoro Git (branch, merge, tag)  
+- Conoscenza di base di testing, documentazione e versioning (Capitoli 15–16)  
+- Esperienza nell’uso di template Markdown e strumenti di automazione CI/CD  
+
+### 17.2 Introduzione e motivazione  
+Un progetto open source prospera grazie a contributori esterni: una governance chiara, processi trasparenti e un ambiente inclusivo ne accelerano la crescita e ne garantiscono la qualità.
+
+### 17.3 Contenuti teorici  
+
+#### 17.3.1 Organizzazione della community  
+- **CODE_OF_CONDUCT**: stabilisce regole di comportamento e meccanismi di segnalazione  
+- **CONTRIBUTING.md**: linee guida su workflow, stile di codice, requisiti di test e documentazione  
+- **Issue template**: formattazione standard per bug report, feature request, domanda  
+- **PR template**: checklist per descrizione delle modifiche, test, documentazione associata  
+
+#### 17.3.2 Processo di code review  
+- **Assegnazione reviewer**: criteri di competenza, rotazione automatica  
+- **Checklist minima**:  
+  - stile e formattazione  
+  - correttezza matematica e dei circuiti  
+  - presenza di test e documentazione  
+- **Strumenti**:  
+  - GitHub Review (commenti inline, richieste di modifica)  
+  - automazione di bot per lint, formattazione e verifica della coverage  
+
+#### 17.3.3 Roadmap e milestone  
+- **Definizione di milestone**: raggruppamento di issue e PR per release futura  
+- **Kanban/Projects board**: monitoraggio di backlog, in corso, in revisione, done  
+- **Changelog**: convenzione “Keep a Changelog” per tracciare feature, bugfix, breaking changes  
+- **Release cadence**: stabilire cadenze (mensile, trimestrale) e criteri di eleggibilità  
+
+### 17.4 Esempi guidati  
+1. Creazione di un repository GitHub con file di base: LICENSE, README.md, CONTRIBUTING.md, ISSUE_TEMPLATE.md, PULL_REQUEST_TEMPLATE.md.  
+2. Simulazione di una pull request: creazione branch `feature/add-qaoa`, modifica codice e documentazione, apertura PR, assegnazione reviewer, commenti e merge.  
+3. Configurazione di GitHub Projects: creazione board “v2.0” con colonne Backlog, In Progress, Review, Done; assegnazione issue e spostamento tra colonne.  
+
+### 17.5 Esercizi proposti  
+1. Redigere un file `CODE_OF_CONDUCT.md` basato sul modello Contributor Covenant, adattando sezioni per un progetto quantistico.  
+2. Definire due template di issue: uno per bug report (includendo stack trace e passi per riprodurre) e uno per feature request (descrizione, use case, criteri di accettazione).  
+3. Creare una milestone “v1.1” assegnando almeno tre issue e pianificando le scadenze.  
+4. Simulare un merge conflittuale risolvendo manualmente un conflitto su un file di circuito QFT e documentare la procedura nel changelog.  
+
+### 17.6 Riepilogo e key takeaways  
+- Linee guida chiare e template standard riducono attrito per nuovi contributori  
+- Un processo di code review strutturato assicura qualità, coerenza e condivisione di conoscenza  
+- Milestone e roadmap trasparenti mantengono il team allineato su obiettivi e scadenze  
+
+### 17.7 Ulteriori letture  
+- GitHub Guides – “Building Welcoming Communities”  
+- Karl Fogel, “Producing Open Source Software”  
+- Contributor Covenant – https://www.contributor-covenant.org  
+- GitHub Projects Documentation – Kanban e milestone settings
