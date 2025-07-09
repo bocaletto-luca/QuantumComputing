@@ -1,2 +1,2 @@
 # Quantum Computing
-QuantumComputing documentation
+Quantum Computing documentation
