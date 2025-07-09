@@ -1,0 +1,35 @@
+## Appendice C: Bibliografia e risorse online
+
+### C.1 Testi fondamentali  
+- Nielsen M. A., Chuang I. L., *Quantum Computation and Quantum Information*, Cambridge University Press, 2000  
+- Preskill J., *Lecture Notes for Physics 229: Quantum Information and Computation*, Caltech, 1998–2000  
+- Rivas Á., Huelga S. F., *Open Quantum Systems: An Introduction*, Springer, 2012  
+- Shor P. W., “Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms”, *SIAM Journal on Computing*, 1997  
+
+### C.2 Articoli di riferimento  
+- Farhi E., Goldstone J., Gutmann S., *A Quantum Approximate Optimization Algorithm*, arXiv:1411.4028, 2014  
+- Harrow A. W., Hassidim A., Lloyd S., “Quantum Algorithm for Linear Systems of Equations”, *Physical Review Letters*, 2009  
+- Peruzzo A. et al., “A Variational Eigenvalue Solver on a Photonic Quantum Processor”, *Nature Communications*, 2014  
+- Kjaergaard M. et al., “Superconducting Qubits: Current State of Play”, arXiv:2005.12667, 2020  
+
+### C.3 Risorse online  
+| Risorsa                       | Tipologia            | Contenuti principali                                   |
+|-------------------------------|----------------------|---------------------------------------------------------|
+| MIT OpenCourseWare            | Video lezioni        | Linear Algebra, Quantum Physics                         |
+| Qiskit Textbook               | Tutorial interattivi | Quantum circuits, VQE, QAOA, error mitigation           |
+| Cirq Documentation            | Guide e API          | Circuit design, noise models, Google Sycamore examples   |
+| Pennylane Tutorials           | Guide passo-passo    | Hybrid quantum–classical workflows, QSVM, QGAN          |
+| Quantum Algorithm Zoo         | Wiki                 | Panoramica di algoritmi quantistici con descrizione     |
+
+### C.4 Piattaforme hardware e simulatori  
+- IBM Quantum Experience – accesso a processori superconduttori reali e simulatori Aer  
+- Google Quantum AI – documentazione Cirq e API Sycamore  
+- Rigetti Quantum Cloud Services – QVM e QPU su architettura a 32 qubit  
+- IonQ Cloud – ioni intrappolati per calcolo universale  
+- AWS Braket – integrazione con Qiskit, Cirq, Rigetti, Oxford Quantum Circuits  
+
+### C.5 Community e forum  
+- Stack Exchange – *quantum-computing*  
+- IBM Quantum Community – Slack, forum ufficiale  
+- Quantum Information Discord – canali tematici su algoritmi, hardware e software  
+- GitHub – repository di progetti open source (Qiskit, Cirq, PennyLane)
