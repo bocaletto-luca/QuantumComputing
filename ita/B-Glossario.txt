@@ -1,0 +1,43 @@
+## Appendice B: Guida alla notazione
+
+### B.1 Principi generali  
+- Notazione bra–ket:  
+  - \(|\psi\rangle\) indica uno stato quantistico (ket)  
+  - \(\langle\phi|\) è il corrispondente bra (vettore duale)  
+- Prodotto interno: \(\langle\phi|\psi\rangle\)  
+- Prodotto tensoriale: \(|\psi\rangle\otimes|\phi\rangle\) o abbreviato \(|\psi\phi\rangle\)  
+- Trasposizione coniugata: \(A^\dagger\)  
+
+### B.2 Simboli di base
+
+| Simbolo              | Significato                                                                       |
+|----------------------|-----------------------------------------------------------------------------------|
+| \(|0\rangle,|1\rangle\)       | Stati base computazionali di un singolo qubit                                      |
+| \(\alpha, \beta\)    | Ampiezze di probabilità, numeri complessi con \(|\alpha|^2+|\beta|^2=1\)           |
+| \(\rho\)             | Matrice densità di stato; \(\rho = |\psi\rangle\langle\psi|\) per stati puri       |
+| \(U\)                | Operatore unitario che evolve lo stato: \(|\psi'\rangle = U|\psi\rangle\)         |
+| \(K_k\)              | Operatori di Kraus in un canale CPTP; \(\sum_k K_k^\dagger K_k = I\)               |
+| \(\otimes\)          | Prodotto tensoriale fra spazi o operatori                                        |
+| \(\langle A\rangle\) | Valore atteso di osservabile \(A\): \(\langle\psi|A|\psi\rangle\)                  |
+| \(\mathrm{tr}(\cdot)\)| Traccia di una matrice; \(\mathrm{tr}(\rho)=1\) per matrice densità               |
+| \(\mathcal{H}\)      | Spazio di Hilbert, spazio vettoriale degli stati quantistici                      |
+| \(R_x(\theta)\)      | Rotazione di un qubit attorno all’asse \(x\) di angolo \(\theta\)                  |
+| \(\mathrm{CNOT}\)    | Controlled-NOT gate a due qubit                                                    |
+| \(\mathrm{QFT}\)     | Quantum Fourier Transform                                                         |
+| \(\mathrm{VQE}\)     | Variational Quantum Eigensolver                                                  |
+| \(\mathrm{QAOA}\)    | Quantum Approximate Optimization Algorithm                                        |
+| \(\lvert\Phi^+\rangle\) | Bell state, esempio di stato entangled fra due qubit                           |
+
+### B.3 Convenzioni tipografiche  
+- Grassetto per vettori classici (e.g., **v**)  
+- Corsivo per variabili scalari (e.g., \(\theta\), \(\gamma\))  
+- Lettere maiuscole per operatori e matrici (e.g., \(H\), \(X\), \(Z\))  
+- Calligrafico per spazi e insiemi (e.g., \(\mathcal{H}\), \(\mathcal{L}\))  
+- Indici di qubit \(q_i\) indicano il \(i\)-esimo qubit in un sistema multi-qubit  
+
+### B.4 Riferimenti incrociati  
+- Quando si cita un circuito, “Figura 5.X” indica il numero della figura in Capitolo 5  
+- “Esempio n.m” si riferisce all’M-esimo esempio guidato del Capitolo n  
+- “Esercizio n.k” indica il k-esimo esercizio del Capitolo n  
+
+---
